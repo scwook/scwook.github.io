@@ -14,11 +14,12 @@ If you need to install the new Java, Please refer to `Java Installation in Debia
 
 ### Glassfish V3
 
-Glassfish V3 can be downloaded from the `[Oracle download web page](http://www.oracle.com/technetwork/java/javaee/downloads/index.html)`.
+Glassfish V3 can be downloaded from the [Oracle download web page](http://www.oracle.com/technetwork/java/javaee/downloads/index.html).
 Run the file as superuser.
 
 ```shell
 root@debian:/Downloads# bash ogs-3.1.2.2-unix.sh
 ```
 When installation menu show up, Click next.
+
 ![Glassfish Installtion Start Up Menu]({{site.url}}/images/glassfish_inst_capture_1.png)
