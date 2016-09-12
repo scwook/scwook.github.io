@@ -26,4 +26,4 @@ github_username:  scwook
 
 # Build settings
 markdown: kramdown
-theme: minima
+#theme: minima
