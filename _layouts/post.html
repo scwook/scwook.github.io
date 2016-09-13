@@ -8,8 +8,8 @@ layout: default
     <p class="post-meta">
     {{ page.date | date: "%b %-d, %Y" }}
     {% for lang in page.language %}
-      {% if lang == "en" %}<a href="{{page.id | truncate:-2, "en"}}"><img src="{{site.url}}/images/gb.png" width=20 height=20></a>{% endif %} 
-      {% if lang == "kr" %}<a href="{{page.id | truncate:-2, "kr"}}"><img src="{{site.url}}/images/kr.png" width=20 height=20></a>{% endif %} 
+      {% if lang == "en" %}<a href="{{page.id | remove: "-en" | remove: "-kr" | append: '-en.html'}}"><img src="{{site.url}}/images/gb.png" width=20 height=20></a>{% endif %} 
+      {% if lang == "kr" %}<a href="{{page.id | remove: "-en" | remove: "-kr" | apeend: '-kr.html'}}"><img src="{{site.url}}/images/kr.png" width=20 height=20></a>{% endif %} 
     {% endfor %}
     </p>
   </header>
