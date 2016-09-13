@@ -9,7 +9,7 @@ layout: default
     {{ page.date | date: "%b %-d, %Y" }}
     {% for lang in page.language %}
       {% if lang == "en" %}<a href="{{site.url}}{{page.id}}"><img src="{{site.url}}/images/gb.png" width=20 height=20></a>{% endif %} 
-      {% if lang == "kr" %}<a href="{{site.url}}{{page.i}}-kr"><img src="{{site.url}}/images/kr.png" width=20 height=20></a>{% endif %} 
+      {% if lang == "kr" %}<a href="{{site.url}}{{page.id}}-kr"><img src="{{site.url}}/images/kr.png" width=20 height=20></a>{% endif %} 
     {% endfor %}
     </p>
   </header>
