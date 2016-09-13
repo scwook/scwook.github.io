@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Glassfish Installation in Debian Jessie"
+language: en
 author: scwook
 categories: Linux
 ---
