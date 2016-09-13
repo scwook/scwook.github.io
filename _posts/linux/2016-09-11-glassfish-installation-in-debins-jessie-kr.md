@@ -1,11 +1,11 @@
 ---
 layout: post
-date: 2016-09-11 00:00:00
 title:  "Glassfish Installation in Debian Jessie"
 language:
   - en
   - kr
 categories: Linux
+draft: true
 ---
 Before installation of the glassfish, make sure of java version. the Glassfish V3 need the JDK 1.7.0 and the Glassfish V4 need the JDK 1.8.0.
 
