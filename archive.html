@@ -16,7 +16,9 @@ layout: default
             <ul>
         {% endif %}
     {% endunless %}
+  {% if post.show %}
     <li><span>{{ post.date | date: "%b %d" }}</span>» <a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+  {% endif %}
 {% endfor %}
 </ul>
 </div>

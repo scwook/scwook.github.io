@@ -5,6 +5,7 @@ layout: default
 <div class="home">
   <ul class="post-list">
     {% for post in site.posts %}
+      {% if post.show %}
       <li>
         <br>
         <h3>
@@ -17,6 +18,7 @@ layout: default
         </div>
                 <br>
       </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
