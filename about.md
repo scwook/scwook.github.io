@@ -5,5 +5,7 @@ layout: default
 <div class="about">
 <br>
 You can edit about.html to custom this.
+
+한글 테스트
 </div>
 

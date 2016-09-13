@@ -6,7 +6,7 @@ language:
   - kr
 categories: Linux
 ---
-Before installation of the glassfish, make sure of java version. the Glassfish V3 need the JDK 1.7.0 and the Glassfish V4 need the JDK 1.8.0.
+Glassfish를 설치하기전 Java 버전을 먼저 확인한다. Glassfish V3의 경우 JDK 1.7 버전을 Glassfish V4의 경우 JDK 1.8 버전을 필요로 한다.
 
 ~~~
 scwook@debian:~$ java -version
