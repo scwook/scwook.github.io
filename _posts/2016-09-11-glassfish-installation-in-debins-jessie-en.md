@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Glassfish Installation in Debian Jessie"
-categories: linux
+categories: Linux
 ---
 Before installation of the glassfish, make sure of java version. the Glassfish V3 need the JDK 1.7.0 and the Glassfish V4 need the JDK 1.8.0.
 
-```{r}
+```bash
 scwook@debian:~$ java -version
 java version "1.8.0_91"
 Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
@@ -19,7 +19,7 @@ If you need to install the new Java, Please refer to `Java Installation in Debia
 Glassfish V3 can be downloaded from the [Oracle download web page](http://www.oracle.com/technetwork/java/javaee/downloads/index.html).
 Run the file as superuser.
 
-```{r}
+```bash
 root@debian:/Downloads# bash ogs-3.1.2.2-unix.sh
 ```
 When installation menu show up, Click next.
@@ -54,7 +54,6 @@ In order to test, Try pointing your browser to localhost or server ip address.
 
 http://localhost:4848 or http://[Server IP Address]:4848
 
-
 ### Glassfish V4
 
 Glassfish V4 can be downloaded form the [Glassfish Download Page](https://glassfish.java.net/download.html).
@@ -63,7 +62,7 @@ Glassfish V4 can be downloaded form the [Glassfish Download Page](https://glassf
 
 Extract the zip file and run the glassfish demon.
 
-```{r}
+```bash
 root@debian:~# unzip glassfish-4.1.1.zip -d /opt/
 root@debian:~# cd /opt/glassfish4/bin/
 root@debian:/opt/glassfish4/bin# ./asadmin start-domain
@@ -80,7 +79,7 @@ http://localhost:4848 or http://[Server IP Address]:4848
 
 The admin password can be modified by change-admin-password command.
 
-```{r}
+```bash
 root@debian:/opt/glassfish4/bin# ./asadmin change-admin-password
 Enter admin user name [default: admin]>admin
 
@@ -93,12 +92,12 @@ Enter the new admin password again> [New Password]
 #### Problem
 If the following error message show up when you try to access to glassfish server remotely.
 
-![Glassfish V4 Download Page]({{site.url}}/images/glassfishv_remote_login.png)
+![Glassfish V4 Download Page]({{site.url}}/images/glassfish_remote_login.png)
 
 #### Solution
 Enable the Secure Admin Access.
 
-```{r}
+```bash
 root@debian:/opt/glassfish4/bin# ./asadmin enable-secure-admin
 Enter admin user name>  admin
 Enter admin password for user "admin"> 
@@ -119,7 +118,7 @@ root@debian:/opt/glassfish4/bin#
 #### Problem
 If following error message show up when you try the start-domain.
 
-```{r}
+```bash
 Waiting for domain1 to start .Error starting domain domain1.
 The server exited prematurely with exit code 1.
 Before it died, it produced the following output:
@@ -142,7 +141,7 @@ Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=64m; support
 
 #### Solution
 Check Java Version
-```{r}
+```bash
 scwook@debian:~$ java -version
 java version "1.8.0_60"
 Java(TM) SE Runtime Environment (build 1.8.0_60-b27)
@@ -153,7 +152,7 @@ Glassfish V4 -> JDK 1.8
 
 #### Problem
 If you have face the problem for JAVA_HOME PATH error.
-```{r}
+```bash
 Could not locate a suitable jar utility.
 Please ensure that you have Java 6 or newer installed on your system and accessible in your PATH or by setting JAVA_HOME
 ```
@@ -161,11 +160,11 @@ Please ensure that you have Java 6 or newer installed on your system and accessi
 #### Solution
 There are two solutions.
 1. Point to JAVA_HOME path manually.
-```{r}
+```bash
 root@debian:~# export JAVA_HOME=/opt/jdk1.7.0_79
 ```
 2. Install the java-wrapper package.
-```{r}
+```bash
 root@debian:~# aptitude install java-wrappers
 ```
 
