@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "Glassfish Installation in Debian Jessie"
+categories: Linux
 language:
   - en
   - kr
-categories: Linux
 ---
 Glassfish를 설치하기전 Java 버전을 먼저 확인한다. Glassfish V3의 경우 JDK 1.7 버전을 Glassfish V4의 경우 JDK 1.8 버전을 필요로 한다.
 
