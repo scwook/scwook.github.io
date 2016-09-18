@@ -27,7 +27,8 @@ github_username:  scwook
 # Build settings
 markdown: kramdown
 kramdown:
-  use_coderay: true
-  coderay:
-    coderay_line_numbers: nil
+  input: GFM
+#  enable_coderay: true
+#  coderay:
+#333    coderay_line_numbers: nil
 #theme: minima
