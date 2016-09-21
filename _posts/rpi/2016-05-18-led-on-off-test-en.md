@@ -7,9 +7,9 @@ language:
   - kr
 categories: RaspberryPi
 ---
-Let's turn on LED when a button is pushed. Before the test, wiringPi must be installed. Please refer to [WiringPi Installation](/rpi/2016/05/20/wiringPi-installation-kr.html) post for installation of wiringPi
+Let's turn on LED when a button is pushed. Before the test, wiringPi must be installed. Please refer to [WiringPi Installation](/rpi/2016/05/20/wiringPi-installation-kr.html) post for installation of wiringPi.
 
-The test circuit is shown as in figure. one leg of button is connect to 5V output pin and another leg is connect to #1 pin of GPIO. In order to prevent floating status of button, 10kΩ pull-down resistor is connected. LED is connected to GPIO #4 with 250Ω resistor so that button state can be checked.  
+The figure below shows a test circuit. one leg of button is connect to 5V output pin and another leg is connect to #1 pin of GPIO. In order to prevent floating status of button, 10kΩ pull-down resistor is connected. LED is connected to GPIO #4 with 250Ω resistor so that button state can be checked.  
 
 ### Component
 
@@ -64,4 +64,4 @@ pi@raspberrypi ~$ gcc -o ledTest ledTest.c -lwiringPi
 pi@raspberrypi ~$ sudo ./ledTest
 {% endhighlight %}
 
-Check the LED On when you pushed the button.
+Check the LED ON when you pushed the button.
