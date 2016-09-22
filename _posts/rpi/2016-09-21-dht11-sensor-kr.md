@@ -7,7 +7,7 @@ language:
 categories: RaspberryPi
 ---
 DHT11 온도 & 습도 센서는 온도 및 습도를 동시에 측정하여 40bit의 디지털 신호로 전송하는 센서이다. 센서에 대한 자세한 사양 및 통신 방법은 [DHT11 Manual](http://www.micropik.com/PDF/dht11.pdf)을 참고하기 바란다.
-테스트에 앞서 기본적으로 [WiringPi]({{site.url}}/rpi/2016/05/20/wiringPi-installation-kr.html)가 설치되어 있어야 한다. 
+테스트에 앞서 기본적으로 [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-kr.html)가 설치되어 있어야 한다. 
 
 ### Component
 

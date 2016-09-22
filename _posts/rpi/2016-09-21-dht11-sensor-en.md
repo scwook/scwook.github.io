@@ -7,7 +7,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-The DHT11 sensor can measure temperature and humidity simultaneously. By using 1-wire signal line, 40bit data are transmitted. Detailed specifications of sensor can be founded in [DHT11 Manual](http://www.micropik.com/PDF/dht11.pdf). In order to test, [WiringPi Installation]({{site.url}}/rpi/2016/05/20/wiringPi-installation-en.html) must be installed.
+The DHT11 sensor can measure temperature and humidity simultaneously. By using 1-wire signal line, 40bit data are transmitted. Detailed specifications of sensor can be founded in [DHT11 Manual](http://www.micropik.com/PDF/dht11.pdf). In order to test, [WiringPi Installation]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-en.html) must be installed.
 
 ### Component
 
