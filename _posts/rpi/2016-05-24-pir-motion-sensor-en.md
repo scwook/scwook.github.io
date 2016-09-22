@@ -14,7 +14,7 @@ PIR motion sensor used to detect whether a object which emits infrared radiation
 * Raspberry Pi 2 Model B
 * [PIR Motion Sensor](https://www.dfrobot.com/wiki/index.php/PIR_Motion_Sensor_V1.0_SKU:SEN0171)
  
-![GPIO Test Circuit]({{site.url}}/images/rpi_pir_motion_test.png)
+![PIR Motion Sensor Test Circuit]({{site.url}}/images/rpi_pir_motion_test.png)
 
 ### Source Code
 

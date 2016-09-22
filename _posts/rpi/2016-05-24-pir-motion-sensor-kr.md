@@ -13,7 +13,7 @@ PIR 모션 센서는 적외선으로 움직임을 감지하는 센서로 일정�
 * Raspberry Pi 2 Model B
 * [PIR Motion Sensor](https://www.dfrobot.com/wiki/index.php/PIR_Motion_Sensor_V1.0_SKU:SEN0171)
  
-![GPIO Test Circuit]({{site.url}}/images/rpi_pir_motion_test.png)
+![PIR Motion Sensor Test Circuit]({{site.url}}/images/rpi_pir_motion_test.png)
 
 ### Source Code
 
