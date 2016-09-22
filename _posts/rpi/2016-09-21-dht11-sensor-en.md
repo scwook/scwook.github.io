@@ -96,6 +96,7 @@ int main(void)
 
   return 0;
 }
+{% endhighlight %}
 
 Compile and run the program
 {% highlight shell %}

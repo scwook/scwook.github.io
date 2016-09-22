@@ -96,6 +96,7 @@ int main(void)
 
   return 0;
 }
+{% endhighlight %}
 
 컴파일 후 프로그램을 실행한다.
 {% highlight shell %}
