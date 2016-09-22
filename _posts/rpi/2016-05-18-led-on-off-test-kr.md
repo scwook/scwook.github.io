@@ -6,8 +6,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-버튼을 눌렀을 때 LED가 켜지는 코드를 작성하고 테스트해 보자. 테스트를 하기전 wiringPi가 설치되어 있어야 한다. wiringPi 설치는 [WiringPi Installation](/rpi/2016/05/20/wiringPi-installation-kr.html) 포스트를 참고한다.
-
+버튼을 눌렀을 때 LED가 켜지는 코드를 작성하고 테스트해 보자. 테스트를 하기전 [WiringPi]({{site.url}}/rpi/2016/05/20/wiringPi-installation-kr.html)가 설치되어 있어야 한다.
 테스트 구성은 아래 그림과 같다. 버튼은 한쪽 다리는 5V 출력 pin에 연결되어 있고 다른 한쪽은 GPIO 1번에 연결되어 있다. 버튼의 foating 상태를 막기 위해 10kΩ의 pull-down 저항을 연결하였다. LED는 250Ω 저항과 함께 GPIO 4번에 연결하여 버튼을 눌렀을 때 LED가 켜지는 것을 확인 할 수 있다.
 
 ### Component

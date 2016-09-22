@@ -6,7 +6,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-PIR 모션 센서는 적외선으로 움직임을 감지하는 센서로 일정한 범위 내에 적외선을 방출하는 물체가 움직일 경우 이를 감지하여 출력 신호로 내보낸다. 센서에 대한 자세한 사양은 [PIR Motion Sensor wiki](https://www.dfrobot.com/wiki/index.php/PIR_Motion_Sensor_V1.0_SKU:SEN0171)를 참고하기 바란다. 테스트를 하기 위해서는 [WiringPi](/rpi/2016/05/20/wiringPi-installation-kr.html)가 설치되어 있어야 한다.
+PIR 모션 센서는 적외선으로 움직임을 감지하는 센서로 일정한 범위 내에 적외선을 방출하는 물체가 움직일 경우 이를 감지하여 출력 신호로 내보낸다. 센서에 대한 자세한 사양은 [PIR Motion Sensor wiki](https://www.dfrobot.com/wiki/index.php/PIR_Motion_Sensor_V1.0_SKU:SEN0171)를 참고하기 바란다. 테스트를 하기 위해서는 [WiringPi]({{site.url}}/rpi/2016/05/20/wiringPi-installation-kr.html)가 설치되어 있어야 한다.
 
 ### Component
 

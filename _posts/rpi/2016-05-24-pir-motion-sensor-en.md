@@ -7,8 +7,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-PIR motion sensor used to detect whether a object which emits infrared radiation has moved in or out the sensor range. If the sensor detect a moving object, it make output signal. More infromation about the sensor can be found in the [PIR Motion Sensor wiki](https://www.dfrobot.com/wiki/index.php/PIR_Motion_Sensor_V1.0_SKU:SEN0171). Before the test, wiringPi must be installed. Please refer to [WiringPi Installation](/rpi/2016/05/20/wiringPi-installation-en.html) post for installation of wiringPi.
-The figure below shows a test circuit.  
+PIR motion sensor used to detect whether a object which emits infrared radiation has moved in or out the sensor range. If the sensor detect a moving object, it make output signal. More infromation about the sensor can be found in the [PIR Motion Sensor wiki](https://www.dfrobot.com/wiki/index.php/PIR_Motion_Sensor_V1.0_SKU:SEN0171). Before the test, [WiringPi]({{site.url}}/rpi/2016/05/20/wiringPi-installation-en.html) must be installed.
 
 ### Component
 
