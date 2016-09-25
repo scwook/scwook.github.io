@@ -7,7 +7,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-The DHT22 Temperature & Humidity sensor is a high sensitive sensor for accuracy and range of measurement more than [DHT11]({{site.url}}/raspberrypi/2016/09/21/dht11-sensor-kr.html) snesor. Detailed specifications of sensor can be founded in [DHT22 Manual](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf). In order to test, [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-kr.html) must be installed.
+The DHT22 Temperature & Humidity sensor is a high sensitive sensor for accuracy and range of measurement more than [DHT11]({{site.url}}/raspberrypi/2016/09/21/dht11-sensor-en.html) snesor. Detailed specifications of sensor can be founded in [DHT22 Manual](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf). In order to test, [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-en.html) must be installed.
 
 ### Component
 
