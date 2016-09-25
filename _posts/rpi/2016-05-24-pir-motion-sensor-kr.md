@@ -50,7 +50,7 @@ int main(void)
 
 ### Test
 
-컴파일 후 프고그램을 실행한다.
+컴파일 후 프로그램을 실행한다.
 
 {% highlight shell %}
 pi@raspberrypi ~$ gcc -o pirMotionTest pirMotionTest.c -lwiringPi

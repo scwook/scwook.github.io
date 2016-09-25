@@ -98,6 +98,8 @@ int main(void)
 }
 {% endhighlight %}
 
+### Test
+
 컴파일 후 프로그램을 실행한다.
 {% highlight shell %}
 pi@raspberrypi ~$ gcc -o dht11 dht11.c -lwiringPi

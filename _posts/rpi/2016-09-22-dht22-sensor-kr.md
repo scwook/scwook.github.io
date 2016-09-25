@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "DHT11 Temperature & Humidity Sensor Test"
+title: "DHT22 Temperature & Humidity Sensor Test"
 language:
   - en
   - kr
 categories: RaspberryPi
 ---
-DHT22 온도 & 습도 센서는 [DHT11]({{site.url}}/raspberrypi/2016/09/21/dht11-sensor-kr.html)센서에 비해 측정 범위 및 정확도가 향상된 센서이다. 센서에 대한 자세한 사양 및 통신 방법은 [DHT22 Manual](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf)을 참고하기 바란다.
+DHT22 온도 & 습도 센서는 [DHT22]({{site.url}}/raspberrypi/2016/09/21/dht22-sensor-kr.html)센서에 비해 측정 범위 및 정확도가 향상된 센서이다. 센서에 대한 자세한 사양 및 통신 방법은 [DHT22 Manual](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf)을 참고하기 바란다.
 테스트에 앞서 기본적으로 [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-kr.html)가 설치되어 있어야 한다. 
 
 ### Component
@@ -20,9 +20,6 @@ DHT22 온도 & 습도 센서는 [DHT11]({{site.url}}/raspberrypi/2016/09/21/dht1
 filename: dht22.c
 
 {% highlight c linenos %}
-//DHT22 Test Code
-//filename: dht22.c
-
 #include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,7 +56,7 @@ void dht22_read_val()
       counter++;
       delayMicroseconds(1);
       if(counter==255)
-	break;
+        break;
     }
 
     lststate=digitalRead(DHT22PIN);
@@ -71,10 +68,11 @@ void dht22_read_val()
     if((i>=4)&&(i%2==0)){
       dht22_val[j/8]<<=1;
       if(counter>16)
-	dht22_val[j/8]|=1;
+        dht22_val[j/8]|=1;
       j++;
     }
   }
+
   // verify cheksum and print the verified data
   if((j>=40)&&(dht22_val[4]==((dht22_val[0]+dht22_val[1]+dht22_val[2]+dht22_val[3])& 0xFF)))
   {
@@ -108,13 +106,50 @@ int main(void)
 
   return 0;
 }
+  // verify cheksum and print the verified data
+  if((j>=40)&&(dht22_val[4]==((dht22_val[0]+dht22_val[1]+dht22_val[2]+dht22_val[3])& 0xFF)))
+  {
+    float t, h;
+
+    h = (float)dht22_val[0] * 256 + (float)dht22_val[1];
+    h /= 10;
+
+    t = (float)(dht22_val[2] & 0x7F)* 256 + (float)dht22_val[3];
+    t /= 10.0;
+
+    if ((dht22_val[2] & 0x80) != 0) t *= -1;
+
+    printf("Humidity = %.2f %% Temperature = %.2f *C \n", h, t );
+  }
+  else
+    printf("Data not good, skip\n");
+}
+
+int main(void)
+{
+
+  if(wiringPiSetup()==-1)
+    exit(1);
+
+  while(1)
+  {
+     dht22_read_val();
+     delay(1000);
+  }
+
+  return 0;
+}
+
 {% endhighlight %}
+
+### Test
 
 컴파일 후 프로그램을 실행한다.
 {% highlight shell %}
 pi@raspberrypi ~$ gcc -o dht22 dht22.c -lwiringPi
-pi@raspberrypi ~$ sudo ./dht22
-H = 32.0  T = 26.0
-H = 32.0  T = 26.0
-H = 32.0  T = 26.0
+pi@raspberrypi ~$ sudo ./dht22 
+Humidity = 56.60 % Temperature = 25.80 *C 
+Humidity = 56.30 % Temperature = 25.80 *C 
+Humidity = 56.10 % Temperature = 25.80 *C 
 {% endhighlight %}
+
