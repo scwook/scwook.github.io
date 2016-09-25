@@ -6,7 +6,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-DHT22 온도 & 습도 센서는 [DHT22]({{site.url}}/raspberrypi/2016/09/21/dht22-sensor-kr.html)센서에 비해 측정 범위 및 정확도가 향상된 센서이다. 센서에 대한 자세한 사양 및 통신 방법은 [DHT22 Manual](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf)을 참고하기 바란다.
+DHT22 온도 & 습도 센서는 [DHT11]({{site.url}}/raspberrypi/2016/09/21/dht11-sensor-kr.html)센서에 비해 측정 범위 및 정확도가 향상된 센서이다. 센서에 대한 자세한 사양 및 통신 방법은 [DHT22 Manual](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf)을 참고하기 바란다.
 테스트에 앞서 기본적으로 [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-kr.html)가 설치되어 있어야 한다. 
 
 ### Component
