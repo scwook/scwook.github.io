@@ -7,9 +7,9 @@ language:
   - kr
 categories: EPICS
 ---
-
 # 1. Introduction
-Web 기반의 Log 시스템인 OLog는 기존의 독립된 Logbook 형식에서 관리 및 작성의 편의성을 향상시킨 Log 시스템이다. 특히 Olog는 CS-Studio에 모듈형태로 설치되어 연동 가능하다. 이는 CS-Studio에 사용되는 다른 Module과의 호환성을 제공하는 것으로 특히 Alarm 정보를 Olog에 바로 적용시킬 수 있는 장점이 있다.
+[Olog(Operator Log)](http://olog.github.io/2.2.7-SNAPSHOT/)는 Java 기반의 Web Application Log 시스템으로
+REST 방식을 사용하는 Log Tool이다. 특히 Olog는 [EIPCS](http://www.aps.anl.gov/epics/) 기반 제어시스템 도구인 [CS-Studio](http://controlsystemstudio.org/)와 연동하여 사용할 수 있다.
 
 # 2. System Requirements
 Olog는 Java 기반의 WAR(Web application ARchiver)파일로 제공되며 다음 시스템 환경을 필요로 한다.
@@ -18,30 +18,28 @@ Olog는 Java 기반의 WAR(Web application ARchiver)파일로 제공되며 다�
 * MySql Server
 * Web Application Server(Glassfish 또는 Apache Tomcat)
 
-Olog Service 및 Client 테스트 환경은 다음과 같다.
+여기에서 진행된 테스트 환경은 다음과 같다. 모든 서버는 하나의 PC에 설치되어 있으며 IP주소는 10.1.5.88로 설정되어 있다.
 
-* Debian Jessie 64bit(or 32bit) Kenel 3.16.0
+* Debian Jessie 64bit Kernel 3.16.0
 * Glassfish v3.1.2.2
-* MySql 5.5
+* MySql Server 5.5
 * Olog Service v2.2.6
 * Olog Web Client v0.5-beta
 * CS-Studio v4.3.2
 
 # 3. Requirements Package Installation
 
-# 3.1 Java 
-현재 설치된 Java 버전을 확인 한 후 1.6 이상의 Java로 설치 한다. Java 설치는 [Java Installation in Debian Jessie]({{site.url}}/linux/2016/05/25/Java-installation-in-debian-jessie-kr.html) 포스트를 참고한다.
+# 3.1 Java
+현재 사용가능한 Java는 Olog Service v2.2.6을 기준으로 JDK 7버전 이하만 지원하고 있다. 만약 설치된 Java의 버전이 맞지 않을 경우 [Java Installation in Debian Jessie]({{site.url}}/linux/2016/05/25/Java-installation-in-debian-jessie-kr.html)를 참고하여 새로운 Java를 설치하기 바란다.
 
 {% highlight shell %}
 scwook@debian:~/Download$ java -version
-java version "1.8.0_91"
-Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
-
-Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
 {% endhighlight %}
 
 # 3.2 MySql Server
-
 MySql은 `aptitude` 명령으로 간단히 설치 할 수 있다. Linux 이외의 OS를 사용하는 경우 [MySql Download Page](http://www.mysql.com/downloads)에서 설치파일을 다운받아 설치한다.
 
 {% highlight shell %}
@@ -53,23 +51,17 @@ MySql에서 사용할 root 비밀번호를 설정하고 Ok를 누른다.
 ![MySql root password setting]({{site.url}}/images/mysql_install_passwd_setting.png)
 
 ### Create Database
-Olog 사용을 위한 MySql Database Table은 다음과 같다.
+Olog의 Database 구조는 다음과 같다.
 
-* attributes
-* entries
-* logbooks
-* logs
-* logs_attributes
-* logs_logbooks
-* properties
-* schema_version
-* subscriptions
+![Olog Database Schema]({{site.url}}/images/olog_db_schema.png)
 
 Database 생성을 위해 MySql에 로그인 한 후 Database를 생성한다.
 
 {% highlight shell %}
 scwook@debain:~$ mysql -u root -p
 Enter password: 
+
+Database 및 Table 생성은 MySql Query명령을 통해 직접 만들 수 있지만 [Olog Scheme Script]({{site.url}}/archive/olog_scheme.sql)파일을 실행하면 간단히 만들 수 있다.
 
 mysql> source /home/scwook/Downloads/olog_scheme.sql;
 mysql> show databases;
@@ -129,12 +121,12 @@ New 버튼을 눌러 다음과 같이 설정한다.
 
 ![Crate Olog JDBC Connection Pool]({{site.url}}/images/glassfish_olog_jdbc_connection_pool.png)
 
-Additional Properties에 다음 속성을 추가한다.
+Additional Properties에 있는 Name과 Value값을 다음과 같이 추가한다.
 
-* databaseName - olog
-* serverName - localhost
-* user - root
-* password - [mysql root password] 
+* Name: databaseName, Value: olog
+* Name: serverName, Value: localhost
+* Name: user, Value: root [mysql user name]
+* Name: password, Value: 1234 [mysql root password] 
 
 ![Olog Connection Pool Properties]({{site.url}}/images/glassfish_olog_connection_pool_properties.png)
 
@@ -147,7 +139,7 @@ New 버튼을 눌러 다음과 같이 설정한다.
 
 ![Crate Olog JDBC Resources]({{site.url}}/images/glassfish_olog_jdbc_resources.png)
 
-### Realm 추가
+### Realm 생성
 Common Tasks - Configurations - Server-config - Security - Realms 메뉴를 선택한다.
 New 버튼을 눌러 다음과 같이 설정한다.
 
@@ -198,23 +190,42 @@ Deploy 버튼을 눌러 다음과 같이 설정한다.
 ![Olog Service Deploy]({{site.url}}/images/glassfish_olog_service_deploy.png)
 
 # 3.5 Olog Web Client
+Olog는 기본적으로 Web Client Tool을 제공하고 있다. 여기서는 Olog Web Client와 CS-Studio에 있는 Log Entry Tool을 이용한 Log작성법에 대해 설명하였다.
 
-This is a [link]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-en.html)
+### Web Client
+[Olog Web Client Download Page](https://github.com/Olog/logbook/releases)또는 `wget`명령으로 최신 버전의 Client를 다운 받은 후 압축을 해제한다.
 
-This is a ![Image]({{site.url}}/images/image.png)
+{% highlight shell %}
+scwook@debain:~/Downloads# wget https://github.com/Olog/logbook/archive/v0.5-beta.tar.gz
+scwook@debain:~/Downloads# tar xvf v0.5-beta.tar.gz
+{% endhighlight %}
 
-{% highlight c linenos %}
-This is a code block with line numbers
+Olog/public_html/static/configuration.js 파일을 열어 serviceurl값을 Olog Service 주소로 설정한다.
+
+{% highlight shell %}
+scwook@debain:~/Downloads# cd logbook-0.5-beta/Olog/public_html/static/js
+scwook@debian:~/Downloads/logbook-0.5-beta/Olog/public_html/static/js$ vi configuration.js
 {% endhighlight %}
 
 {% highlight shell %}
-This is a code block without line numbers
+// For accessing the REST service
+var serviceurl = "https://10.1.5.88:8181/Olog/resources/";
 {% endhighlight %}
 
-Toubleshooting
-==============
+접속은 Web Browser를 이용하여 index.html 파일을 열면 된다.
 
-### A. JDBC Connection Pools Error
-JDBC Connection Pools 생성시 다음과 같은 에러가 발생할 경우 `crate-jdbc-connection-pool` shell 명령으로 생성한다.
+{% highlight shell %}
+scwook@debian:~\$ firefox logbook-0.5-beta\Olog\index.html
+{% endhighlight %}
 
-### B. Touble Title
+![Web Client v0.5 beta]({{site.url}}/images/olog_web_client.png)
+
+### CS-Studio Client
+Edit-Preferences를 실행한다. Preferences창에서 CSS Core-Logbook을 선택한 후 Olog Service 주소를 입력 한다. 기본 Log작성 사용자를 설정하고 싶은 경우 Olog에 등록된 사용자와 비밀번호를 username과 password에 입력한다. Apply 버튼을 누른 후 CS-Studio를 재시작 한다.
+
+![CS-Studio Olog Settings]({{site.url}}/images/css_olog_settings.png)
+
+로그 작성은 Log Entry 메뉴에서 할 수 있다. CSS-Utilities-Create Log Entry를 실행한다. Olog 사용자와 비밀번호를 입력하고 Log를 작성한다.
+
+![CS-Studio Log Entry]({{site.url}}/images/css_log_entry.png)
+

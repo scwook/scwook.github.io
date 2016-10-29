@@ -30,11 +30,11 @@ root@debian:/Downloads# bash ogs-3.1.2.2-unix.sh
 
 ![Glassfish Installtion Start Up Menu]({{site.url}}/images/glassfish_inst_capture_1.png)
 
-Typical Installation을 선택하고 next를 누른다.
+Typical Installation을 선택하고 Next를 누른다.
 
 ![Glassfish Installtion Select Type]({{site.url}}/images/glassfish_inst_capture_2.png)
 
-설치 경로를 /opt/glassfish3로 변경한 후 next를 누른다.
+설치 경로를 /opt/glassfish3로 변경한 후 Next를 누른다.
 
 ![Glassfish Installtion Select Install Directory]({{site.url}}/images/glassfish_inst_capture_3.png)
 
@@ -42,15 +42,15 @@ Install Update Tool과 Enable Update Tool를 선택한다. Update Tool설치에 
 
 ![Glassfish Installtion Select Options]({{site.url}}/images/glassfish_inst_capture_4.png)
 
-next 버튼을 누르고 설치를 시작한다.
+Install 버튼을 누르고 설치를 시작한다.
 
 ![Glassfish Installtion Ready To Install]({{site.url}}/images/glassfish_inst_capture_5.png)
 
-설치가 끝난 후 Domain Info 메뉴가 나타난다. 관리자 비밀번호만 설정하고 나머지는 기본 설정으로 둔다. 설정이 완료되었으면 next를 누른다.
+설치가 끝난 후 Domain Info 메뉴가 나타난다. 관리자 비밀번호만 설정하고 나머지는 기본 설정으로 둔다. 설정이 완료되었으면 Next를 누른다.
 
 ![Glassfish Installtion Domain Info]({{site.url}}/images/glassfish_inst_capture_6.png)
 
-exit를 눌러 모든 설치를 완료한다.
+Exit를 눌러 모든 설치를 완료한다.
 
 ![Glassfish Installtion Summary]({{site.url}}/images/glassfish_inst_capture_7.png)
 

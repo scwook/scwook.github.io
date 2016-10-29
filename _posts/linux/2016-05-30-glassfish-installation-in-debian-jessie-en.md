@@ -27,15 +27,15 @@ Run the file as superuser.
 root@debian:/Downloads# bash ogs-3.1.2.2-unix.sh
 {% endhighlight shell %}
 
-When installation menu show up, Click next.
+When installation menu show up, Click Next.
 
 ![Glassfish Installtion Start Up Menu]({{site.url}}/images/glassfish_inst_capture_1.png)
 
-Select the Typical Installation and click next.
+Select the Typical Installation and click Next.
 
 ![Glassfish Installtion Select Type]({{site.url}}/images/glassfish_inst_capture_2.png)
 
-Change the Installation Directory to /opt/glassfish3 and click next.
+Change the Installation Directory to /opt/glassfish3 and click Next.
 
 ![Glassfish Installtion Select Install Directory]({{site.url}}/images/glassfish_inst_capture_3.png)
 
@@ -43,15 +43,15 @@ Check the Install Update Tool and Enable Update Tool. This is options. You don't
 
 ![Glassfish Installtion Select Options]({{site.url}}/images/glassfish_inst_capture_4.png)
 
-Click next to start installation.
+Click Install to start installation.
 
 ![Glassfish Installtion Ready To Install]({{site.url}}/images/glassfish_inst_capture_5.png)
 
-After finish installation, Domain Info menu show up. Set the administrator password and leave the default settings. Click next.
+After finish installation, Domain Info menu show up. Set the administrator password and leave the default settings. Click Next.
 
 ![Glassfish Installtion Domain Info]({{site.url}}/images/glassfish_inst_capture_6.png)
 
-Installation is completed. Click exit.
+Installation is completed. Click Exit.
 
 ![Glassfish Installtion Summary]({{site.url}}/images/glassfish_inst_capture_7.png)
 
