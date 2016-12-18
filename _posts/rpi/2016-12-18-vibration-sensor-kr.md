@@ -7,7 +7,7 @@ language:
 categories: RaspberryPi
 ---
 
-진동 센서를 이용하여 진동에 따라 깜빡이는 LED를 만들어 보자. 테스트를 하기 전 [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-en.html)가 설치되어 있어야 한다.
+진동 센서를 이용하여 진동에 따라 깜빡이는 LED를 만들어 보자. 테스트를 하기 전 [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-kr.html)가 설치되어 있어야 한다.
 
 ### Component
 
