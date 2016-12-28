@@ -22,7 +22,7 @@ The original source code can be founded at [DHT11 GitHub](https://github.com/Hex
 filename: dht11.c
 
 {% highlight c linenos %}
-nclude <wiringPi.h>
+#include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

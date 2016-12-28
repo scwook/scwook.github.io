@@ -20,7 +20,7 @@ The DHT22 Temperature & Humidity sensor is a high sensitive sensor for accuracy 
 filename: dht22.c
 
 {% highlight c linenos %}
-include <wiringPi.h>
+#include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

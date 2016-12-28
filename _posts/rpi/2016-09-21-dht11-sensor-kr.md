@@ -22,7 +22,7 @@ DHT11 온도 & 습도 센서는 온도 및 습도를 동시에 측정하여 40bi
 filename: dht11.c
 
 {% highlight c linenos %}
-nclude <wiringPi.h>
+#include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
