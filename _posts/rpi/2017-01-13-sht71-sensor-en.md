@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "16x4 Character LCD Test"
+show: true
 language:
   - en
   - kr
