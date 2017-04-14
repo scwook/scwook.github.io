@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "SHT71 Sensor Test"
-show: true
 language:
   - en
   - kr
