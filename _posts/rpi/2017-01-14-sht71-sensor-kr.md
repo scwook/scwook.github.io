@@ -138,7 +138,7 @@ int main ()
 
         return 1;
 }
-{% endhighlight}
+{% endhighlight %}
 
 {% highlight c linenos %}
 // SHT71 Sensor Test Code
@@ -207,7 +207,7 @@ unsigned char SHT1x_Mirrorbyte(unsigned char value);
 void SHT1x_Xrc_check(int pin, unsigned char value);
 void SHT1x_Calc(float *p_humidity ,float *p_temperature);
 #endif
-{% endhighlight}
+{% endhighlight %} 
 
 ### Test
 
