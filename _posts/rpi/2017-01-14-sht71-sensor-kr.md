@@ -6,7 +6,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-SHT71센서는 [DHT22]({{site.url}}/raspberrypi/2016/09/22/dht22-sensor.kr.html)보다 높은 정확성을 가지는 온습도 센서이다. 자세한 센서정보는 SENSIRION사의 [SHT7x](https://www.sensirion.com/kr/environmental-sensors/humidity-sensors/pintype-digital-humidity-sensors/)를 참고한다.
+SHT71센서는 [DHT22]({{site.url}}/raspberrypi/2016/09/22/dht22-sensor-kr.html)보다 높은 정확성을 가지는 온습도 센서이다. 자세한 센서정보는 SENSIRION사의 [SHT7x](https://www.sensirion.com/kr/environmental-sensors/humidity-sensors/pintype-digital-humidity-sensors/)를 참고한다.
 
 ### Component
 
