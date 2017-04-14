@@ -17,7 +17,7 @@ SHT71 temperature & humidity sensor is a more high sensitive sensor than [DHT22]
 
 ### Enable I2C Interface
 
-SHT71센서는 온습도 정보를 I2C Interface를 통해 전송한다. Raspberry Pi의 I2C Interface 설정 방법은 [I2C Configuration of Raspberry Pi]({{site.url}}/raspberrypi/2017/04/13/i2c-configuration-kr.html)을 참고한다.
+SHT71 sensor use I2C interface of raspberry pi. To enalbe I2C of raspberry pi, Please refer to [I2C Configuration of Raspberry Pi]({{site.url}}/raspberrypi/2017/04/13/i2c-configuration-kr.html)
 
 ### Source Code
 
