@@ -6,7 +6,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-I2C(Inter-Integrated Circuit)는 필립스에서 개발한 통신 프로토콜이며 클럭 동기화를 위한 SCL(Serial Clock)과 데이터 전송을 위한 SDA(Serial Data)로 구성되어 있다. I2C는 속도가 느리지만 하나의 버스에 많은 수의 장치를 연결할 수 있는 장점이 있다. Raspberry Pi는 2개의 I2C Interface를 지원하며 Configuration Tool을 사용하여 활성화 할 수 있다. I2C Pin 번호는 [gpio readall]({{site.url}}/raspberrypi/2015/05/20/wiringPi-installation-kr) 명령으로 확인 할 수 있다.
+I2C(Inter-Integrated Circuit)는 필립스에서 개발한 통신 프로토콜이며 클럭 동기화를 위한 SCL(Serial Clock)과 데이터 전송을 위한 SDA(Serial Data)로 구성되어 있다. I2C는 속도가 느리지만 하나의 버스에 많은 수의 장치를 연결할 수 있는 장점이 있다. Raspberry Pi는 2개의 I2C Interface를 지원하며 Configuration Tool을 사용하여 활성화 할 수 있다. I2C Pin 번호는 [gpio readall]({{site.url}}/raspberrypi/2015/05/20/wiringPi-installation-kr.html) 명령으로 확인 할 수 있다.
 
 ### Enable I2C Interface
 
