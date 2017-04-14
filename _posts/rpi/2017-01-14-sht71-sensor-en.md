@@ -6,7 +6,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-SHT71 temperature & humidity sensor is a more high sensitive sensor than [DHT22]({{site.url}}/raspberrypi/2016/09/22/dht22-sensor.kr.html). Detail information of sensor can be founded in [SHT7x](https://www.sensirion.com/kr/environmental-sensors/humidity-sensors/pintype-digital-humidity-sensors/)
+SHT71 temperature & humidity sensor is a more high sensitive sensor than [DHT22]({{site.url}}/raspberrypi/2016/09/22/dht22-sensor.kr.html). More detailed information of SHT71 sensor can be founded in [SHT7x](https://www.sensirion.com/kr/environmental-sensors/humidity-sensors/pintype-digital-humidity-sensors/)
 
 ### Component
 

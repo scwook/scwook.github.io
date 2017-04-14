@@ -7,7 +7,7 @@ language:
   - kr
 categories: RaspberryPi
 ---
-I2C(Inter-Integrated Circuit)is a serial based protocol developed by the Philips Electronics and it has two bus lines which are SCL(Serial Clock) for clock synchronization and SDA(Serial Data) for data transmission. Although I2C has low transmission speed, it can connect to many devices by one bus line. Raspberry pi support two I2C interface and it can be enabled using Configuration Tool. The dedicated pin number of I2C can be checked using by [gpio readall]({{site.url}}/raspberrypi/2015/05/20/wiringPi-installation-en.html) command.
+I2C(Inter-Integrated Circuit)is a serial based protocol developed by the Philips Electronics and it has two bus lines which are SCL(Serial Clock) for clock synchronization and SDA(Serial Data) for data transmission. Although I2C has low transmission speed, it can connect to many devices by one bus line. Raspberry pi support two I2C interface and it can be enabled using Configuration Tool. The dedicated pin number of I2C can be checked by using [gpio readall]({{site.url}}/raspberrypi/2015/05/20/wiringPi-installation-en.html) command.
 
 In order to use I2C interface, open the **Raspberry Pi Configuration Tool**.
 
