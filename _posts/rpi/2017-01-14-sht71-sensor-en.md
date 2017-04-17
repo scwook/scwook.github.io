@@ -7,7 +7,14 @@ language:
   - kr
 categories: RaspberryPi
 ---
-SHT71 temperature & humidity sensor is a more high sensitive sensor than [DHT22]({{site.url}}/raspberrypi/2016/09/22/dht22-sensor-en.html). More detailed information of SHT71 sensor can be founded in [SHT7x](https://www.sensirion.com/kr/environmental-sensors/humidity-sensors/pintype-digital-humidity-sensors/).
+SHT71 is a temperature and humidity sensor with small size and low power consumption. Basic specifications of the sensor are as follow and More detailed information can be founded in [SHT7x](https://www.sensirion.com/kr/environmental-sensors/humidity-sensors/pintype-digital-humidity-sensors/).
+
+* Humidity Accuracy [%RH]: ±3
+* Temperature [℃]: ±0.4
+* Supply Voltage [V]: 2.4 to 5.5
+* Interface: Digital SBus (I2C)
+
+In order to test, [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-en.html) and [I2C]({{site.url}}/raspberrypi/2017/04/13/i2c-configuration-en.html) are must be configured.
 
 ### Component
 
@@ -16,13 +23,9 @@ SHT71 temperature & humidity sensor is a more high sensitive sensor than [DHT22]
 
 ![SHT71 Test Circuit]({{site.url}}/images/rpi_sht71_test.png)
 
-### Enable I2C Interface
-
-SHT71 sensor use I2C interface of raspberry pi. To enalbe I2C of raspberry pi, Please refer to [I2C Configuration of Raspberry Pi]({{site.url}}/raspberrypi/2017/04/13/i2c-configuration-en.html)
-
 ### Source Code
 
-This source code is based on following web site and I modified the code for  wiringPi library.
+All this source code is based on following web site and I modified the code for wiringPi library.
 
 [https://www.john.geek.nz/2012/08/reading-data-from-a-sensirion-sht1x-with-a-raspberry-pi](https://www.john.geek.nz/2012/08/reading-data-from-a-sensirion-sht1x-with-a-raspberry-pi/)
 

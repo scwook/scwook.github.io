@@ -6,7 +6,14 @@ language:
   - kr
 categories: RaspberryPi
 ---
-SHT71센서는 [DHT22]({{site.url}}/raspberrypi/2016/09/22/dht22-sensor-kr.html)보다 높은 정확성을 가지는 온습도 센서이다. 자세한 센서정보는 SENSIRION사의 [SHT7x](https://www.sensirion.com/kr/environmental-sensors/humidity-sensors/pintype-digital-humidity-sensors/)를 참고한다.
+SHT71는 작은 크기와 낮은 소비전력으로 온도 및 습도를 측정할 수 있는 센서이다. 센서에 대한 기본 사양은 아래와 같으며 보다 자세한 사양은 SENSIRION사의 [SHT7x](https://www.sensirion.com/kr/environmental-sensors/humidity-sensors/pintype-digital-humidity-sensors/)에서 확인할 수 있다. 
+
+* Humidity Accuracy [%RH]: ±3
+* Temperature [℃]: ±0.4
+* Supply Voltage [V]: 2.4 to 5.5
+* Interface: Digital SBus (I2C)
+
+테스트 진행을 위해서는 [WiringPi]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-kr.html) 및 [I2C 설정]({{site.url}}/raspberrypi/2017/04/13/i2c-configuration-kr.html)이 되어 있어야 한다.
 
 ### Component
 
@@ -15,13 +22,9 @@ SHT71센서는 [DHT22]({{site.url}}/raspberrypi/2016/09/22/dht22-sensor-kr.html)
 
 ![SHT71 Test Circuit]({{site.url}}/images/rpi_sht71_test.png)
 
-### Enable I2C Interface
-
-SHT71센서는 온습도 정보를 I2C Interface를 통해 전송한다. Raspberry Pi의 I2C Interface 설정 방법은 [I2C Configuration of Raspberry Pi]({{site.url}}/raspberrypi/2017/04/13/i2c-configuration-kr.html)을 참고한다.
-
 ### Source Code
 
-기본 코드는 아래 사이트의 코드를 사용했으며 wiringPi Library에 맞게 변경하였다.
+전체 코드는 아래 사이트에 있는 코드에서 일부분 wiringPi Library에 맞게 변경하였다.
 
 [https://www.john.geek.nz/2012/08/reading-data-from-a-sensirion-sht1x-with-a-raspberry-pi](https://www.john.geek.nz/2012/08/reading-data-from-a-sensirion-sht1x-with-a-raspberry-pi/)
 
