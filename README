@@ -1,0 +1,5 @@
+Start Server
+
+$ bundle exec jekyll server
+
+New Line : <br /> or insert two space end of line
