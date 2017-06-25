@@ -1,38 +1,38 @@
 ---
 layout: post
 title: "Linux Configuration Guide"
+show: true
 language:
   - en
   - kr
 categories: Linux
 ---
 
-아래 명령 및 설정은 리눅스 데비안 기반으로 작성되었다.
+Following command and configuration is based on debian linux.
 
-1. [DVD에 iso 이미지 파일 굽기](#1)
-2. [Network Manager 사용](#2)
+1. [Write iso image on DVD](#1)
+2. [Using Network Manager](#2)
 3. [Glusterfs Configuration](#3)
 4. [SAMBA Configuration](#4)
 5. [FTP Configuration](#5)
-6. [Debian 설치할 때 HDD가 안보일 때](#6)
-7. [자동 로그인 설정](#7)
-8. [VirtualBox Guest Addtion 설치](#8)
-9. [두 PC간 전송속도 테스트](#9)
-10. [여러 이미지 파일을 하나의 영상파일로 결합](#10)
-11. [Tomcat 기본 포트 변경](#11)
-12. [HDD 자동 마운트](#12)
+6. [Invisible HDD while installation for debian](#6)
+7. [Auto Login Configuration](#7)
+8. [VirtualBox Guest Addation Installation](#8)
+9. [Network Speed Test between two PCs](#9)
+10. [Combine one video file form a number of images](#10)
+11. [Modify Tomcat default port](#11)
+12. [HDD Auto Mount](#12)
 
 <br />
 
-### <a name="1"></a>1. DVD에 iso 이미지 파일 굽기
+### <a name="1"></a>1. Write iso image on DVD
 
-growisofs 설치
+Install growisofs
 
 {% highlight console %}
 root@debian:~# aptitude install growisofs
 {% endhighlight %}
 
-이미지 파일 이름이 my_image.iso일 경우 아래와 같이 실행
 
 {% highlight console %}
 root@debian:~# growisofs -Z /dev/dvdrw=my_image.iso
