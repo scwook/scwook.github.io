@@ -12,7 +12,7 @@ I2C(Inter-Integrated Circuit)는 필립스에서 개발한 통신 프로토콜�
 
 I2C를 사용하기 위해 Raspberry Pi Configuration Tool을 실행한다.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ sudo raspi-config
 {% endhighlight %}
 
@@ -30,13 +30,13 @@ I2C를 선택한 후 Yes로 설정 한다.
 
 테스트를 위해 i2c-tools 설치한다.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ sudo aptitude install i2c-tools
 {% endhighlight %}
 
 설치가 완료되면  i2cdetect 명령을 통해 연결된 장치의 주소를 확인 할 수 있다. 아래는 1번 I2C에 BME280 센서를 연결했을 경우 출력되는 주소이다.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ sudo i2cdetect -y 1
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 

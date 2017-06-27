@@ -49,7 +49,7 @@ root@debian:~# growisofs -Z /dev/dvdrw=my_image.iso
  - /etc/network/interfaces 파일에 Network 관련 설정이 되어 있을 때
  - /etc/NetworkManager/NetworkManager.conf 파일에 managed 값이 false로 되어 있을 때
 
-/etc/network/interfaces 파일에 다음과 같이 기본 설정으로 변경한다.
+Network Manager를 사용하기 위해 /etc/network/interfaces 파일에 다음과 같이 기본 설정으로 변경한다.
 
 {% highlight cfg %}
 # This file describes the network interfaces available on your system
@@ -165,7 +165,8 @@ root@debian:~# mount -o bind /media/scwook/usb /home/scwook/usb-link
 ### <a name="6"></a>6. Debian 설치시 HDD가 안보일 때
 
 Debian Linux 설치시 장착된 HDD가 보이지 않을 경우 다음과 같이 해결할 수 있다.
-Debian Download Page에서 Live 이미지를 다운 받은 후 [Live CD](#1)를 준비한다.
+해결할 수 있는 한 가지 방법은 Live CD를 이용하는 것이다.
+Debian Download Page에서 Live 이미지를 다운 받은 후 [Live CD](https://www.debian.org/CD/live/)를 준비한다.
 Live CD로 부팅 한 후 dmraid 명령으로 HDD를 인식시킨다.
 
 {% highlight console %}

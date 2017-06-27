@@ -10,7 +10,7 @@ Raspberry Pi에서 GPIO Port를 사용할 수 있는 방법 중 하나는 wiring
 
 wiringPi는 소스 코드는 git에서 받을 수 있으며, 코드를 빌드 하는것으로 설치는 끝난다. git이 설치되어 있지 않다면 git을 먼저 설치한다.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ sudo su -
 root@raspberrypi:~# aptitude install git
 root@raspberrypi:~# exit
@@ -21,18 +21,18 @@ remote: Compressing objects: 100% (599/599), done.
 remote: Total 657 (delta 476), reused 95 (delta 58)
 Receiving objects: 100% (657/657), 247.61 KiB | 94 KiB/s, done.
 Resolving deltas: 100% (476/476), done.
-{% endhighlight shell %}
+{% endhighlight %}
 
 받은 코드를 빌드한다.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ cd wiringPi
 pi@raspberrypi ~/wiringPi$ ./build
-{% endhighlight shell %}
+{% endhighlight %}
 
 Pin Layout은 `gpio readall` 명령으로 확인 할 수 있다. wiringPi는 자체 Pin Map을 사용하는데 wPi로 표시된 부분은 wiringPi에서 사용하는 GPIO 핀 번호이다.
 
-{% highlight shell %}
+{% highlight console %}
 raspberrypi:~/wiringPi $ gpio readall
 +-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
@@ -60,4 +60,4 @@ raspberrypi:~/wiringPi $ gpio readall
  +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
  +-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
-{% endhighlight shell %}
+{% endhighlight console %}

@@ -109,8 +109,9 @@ int main(void)
 
 ### Test
 
-Compile and run the program
-{% highlight shell %}
+Compile and run the program.
+
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o dht22 dht22.c -lwiringPi
 pi@raspberrypi ~$ sudo ./dht22 
 Humidity = 56.60 % Temperature = 25.80 *C 

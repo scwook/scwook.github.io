@@ -33,7 +33,7 @@ In this post, the test system is as follow. All servers are installed in a one P
 # 3.1 Java
 Currently, The Olog Service based version 2.2.6 support only the Java JDK 6 or 7. If your system doesn't satisfy these Java version, Please refer to the [Java Installation in Debian Jessie]({{site.url}}/linux/2016/05/25/Java-installation-in-debian-jessie-kr.html) post to install a new Java version. 
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~/Download$ java -version
 java version "1.7.0_80"
 Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
@@ -43,7 +43,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
 # 3.2 MySql Server
 MySql Server can be installed by using `aptitude` command. If you are using OS other than Linux, you have to install MySql Server form [MySql Download Page](http://www.mysql.com/downloads)
 
-{% highlight shell %}
+{% highlight console %}
 root@debian:~# aptitude install mysql-server-5.5
 {% endhighlight %}
 
@@ -58,14 +58,14 @@ The structure of the Olog database is as follows.
 
 In order to create the database, Login to MySql Server.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debain:~$ mysql -u root -p
 Enter password: 
 {% endhighlight %}
 
 The Olog database and table can be create by using the MySql query command or you can use [Olog Scheme Script]({{site.url}}/archive/olog_scheme.sql) script file.
 
-{% highlight shell %}
+{% highlight console %}
 mysql> source /home/scwook/Downloads/olog_scheme.sql;
 mysql> show databases;
 +--------------------+
@@ -108,7 +108,7 @@ To use Java based the Olog Service with MySql, JDBC(Java Database Connectivity) 
 
 Uncompress file and copy `mysql-connector-java-5.1.38-bin.jar` to glassfish library directory.
 
-{% highlight shell %}
+{% highlight console %}
 root@debain:~/Downloads# tar xvf mysql-connector-java-5.1.38.tar.gz
 root@debain:~/Downloads# cd mysql-connector-java-5.1.38
 root@debain:~/Downloads# cp mysql-connector-java-5.1.38-bin.jar /opt/glassfish3/glassfish/lib
@@ -169,13 +169,13 @@ Click the Manage Users and add user informations.
 ### Download
 Olog Service file can be found in [Olog Web Page](https://sourceforge.net/projects/olog/files). In case of Linux OS, can more easily download by using `wget` command.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~/Downloads$ wget https://sourceforge.net/projects/olog/files/Rel_2-2-6/Olog_2-2-6.tar.gz
 {% endhighlight %}
 
 Uncompress the file.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~/Downloads$ tar xvf Olog_2-2-6.tar.gz
 scwook@debian:~/Downloads$ ls
 OlogAPI-2.2.6.jar          OlogAPI-2.2.6-sources.jar
@@ -199,26 +199,26 @@ In order to use the Olog Service, basically, the Web Client tool is provided. In
 ### Web Client
 Download the [Olog Web Client](https://github.com/Olog/logbook/releases) on the website or by using `wget` command.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debain:~/Downloads# wget https://github.com/Olog/logbook/archive/v0.5-beta.tar.gz
 scwook@debain:~/Downloads# tar xvf v0.5-beta.tar.gz
 {% endhighlight %}
 
 Open the configuration.js file located at /Olog/public_html/static/js and change the serviceurl to the Olog Service address.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debain:~/Downloads# cd logbook-0.5-beta/Olog/public_html/static/js
 scwook@debian:~/Downloads/logbook-0.5-beta/Olog/public_html/static/js$ vi configuration.js
 {% endhighlight %}
 
-{% highlight shell %}
+{% highlight console %}
 // For accessing the REST service
 var serviceurl = "https://10.1.5.88:8181/Olog/resources/";
 {% endhighlight %}
 
 Run index.html file with a web browser.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~\$ firefox logbook-0.5-beta\Olog\index.html
 {% endhighlight %}
 

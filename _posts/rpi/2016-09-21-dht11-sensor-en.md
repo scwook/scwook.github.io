@@ -100,8 +100,9 @@ int main(void)
 
 ### Test
 
-Compile and run the program
-{% highlight shell %}
+Compile and run the program.
+
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o dht11 dht11.c -lwiringPi
 pi@raspberrypi ~$ sudo ./dht11
 H = 32.0  T = 26.0

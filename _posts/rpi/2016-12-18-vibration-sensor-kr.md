@@ -59,7 +59,7 @@ void function(void)
 
 컴파일 후 프로그램을 실행한다.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o vibrationTest vibrationTest.c -lwiringPi
 pi@raspberrypi ~$ sudo ./vibrationTest
 {% endhighlight %}

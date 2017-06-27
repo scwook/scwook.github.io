@@ -60,7 +60,7 @@ void function(void)
 
 Compile and run the program.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o vibrationTest vibrationTest.c -lwiringPi
 pi@raspberrypi ~$ sudo ./vibrationTest
 {% endhighlight %}

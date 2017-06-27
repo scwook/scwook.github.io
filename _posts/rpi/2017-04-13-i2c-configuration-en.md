@@ -11,7 +11,7 @@ I2C(Inter-Integrated Circuit)is a serial based protocol developed by the Philips
 
 In order to use I2C interface, open the **Raspberry Pi Configuration Tool**.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ sudo raspi-config
 {% endhighlight %}
 
@@ -29,13 +29,13 @@ Select **I2C** and set enable **Yes**
 
 In order to test, install **i2c-tools**.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ sudo aptitude install i2c-tools
 {% endhighlight %}
 
 Now you can check device address which is connected to raspberry pi using **i2cdetect** command. blow address is a BME280 sensor that is connected to I2C 1.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ sudo i2cdetect -y 1
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 

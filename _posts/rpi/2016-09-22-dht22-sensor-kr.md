@@ -139,13 +139,13 @@ int main(void)
 
   return 0;
 }
-
 {% endhighlight %}
 
 ### Test
 
 컴파일 후 프로그램을 실행한다.
-{% highlight shell %}
+
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o dht22 dht22.c -lwiringPi
 pi@raspberrypi ~$ sudo ./dht22 
 Humidity = 56.60 % Temperature = 25.80 *C 

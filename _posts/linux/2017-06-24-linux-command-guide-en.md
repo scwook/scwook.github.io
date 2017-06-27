@@ -15,7 +15,7 @@ Following command and configuration is based on debian linux.
 3. [Glusterfs Configuration](#3)
 4. [SAMBA Configuration](#4)
 5. [FTP Configuration](#5)
-6. [Invisible HDD while installation for debian](#6)
+6. [Invisible HDD when install debian](#6)
 7. [Auto Login Configuration](#7)
 8. [VirtualBox Guest Addation Installation](#8)
 9. [Network Speed Test between two PCs](#9)
@@ -33,6 +33,7 @@ Install growisofs
 root@debian:~# aptitude install growisofs
 {% endhighlight %}
 
+If image file name is my_image.iso, you can use following command.
 
 {% highlight console %}
 root@debian:~# growisofs -Z /dev/dvdrw=my_image.iso
@@ -40,16 +41,16 @@ root@debian:~# growisofs -Z /dev/dvdrw=my_image.iso
 
 <br />
 
-### <a name="2"></a>2. Network Manager 사용
+### <a name="2"></a>2. Using Network Manager
 
 [https://wiki.debian.org/NetworkManager](https://wiki.debian.org/NetworkManager)
 
-다음 2가지 경우에 Network Manager가 작동하지 않는다.
+In case of following two conditions, Network Manager doesn't work.
 
- - /etc/network/interfaces 파일에 Network 관련 설정이 되어 있을 때
- - /etc/NetworkManager/NetworkManager.conf 파일에 managed 값이 false로 되어 있을 때
+ - When declared any network configuration in /etc/network/interfaces file
+ - When namaged valus is set false in /etc/NetworkManager/NetworkManager.conf file
 
-/etc/network/interfaces 파일에 다음과 같이 기본 설정으로 변경한다.
+To use Network Manager, recovery default value in /etc/network/interfaces file.
 
 {% highlight cfg %}
 # This file describes the network interfaces available on your system
@@ -62,7 +63,7 @@ auto lo
 iface lo inet loopback
 {% endhighlight %}
 
-/etc/NetworkManager/NetworkManager.conf 파일의 managed 값을 true로 변경한다.
+And change managed value to true.
 
 {% highlight cfg %}
 [main]
@@ -72,7 +73,7 @@ plugins=ifupdown,keyfile
 managed=true
 {% endhighlight %}
 
-Network Manager를 재시작 한다.
+Restart Network Manager.
 
 {% highlight console %}
 root@debian:~# /etc/init.d/network-namager restart
@@ -82,7 +83,7 @@ root@debian:~# /etc/init.d/network-namager restart
 
 ### <a name="3"></a>3. Glusterfs Configuration
 
-Server 설정
+Server Configuration
 
 {% highlight console %}
 root@debian:~# aptitude install glusterNetfs-server
@@ -90,7 +91,7 @@ root@debian:~# gluster volume create glusterfs transport tcp 192.168.1.100:/home
 root@debian:~# gluster volume start glusterfs
 {% endhighlight %}
 
-Client 설정
+Client Configuration
 
 {% highlight console %}
 root@debian:~# aptitude install glusterfs-client
@@ -105,7 +106,7 @@ root@debian:~# mount -t glusterfs 192.168.1.100:/glusterfs /mnt/glusterfs
 root@debian:~# aptitude install samba
 {% endhighlight %}
 
-/etc/samba/smb.conf 파일에 다음 추가
+Insert following lines in /etc/samba/smb.conf file.
 
 {% highlight cfg %}
 [global]
@@ -119,19 +120,19 @@ valid user = scwook
 browseable = no
 {% endhighlight %}
 
-samba 사용자 추가
+Add samba user.
 
 {% highlight console %}
 root@debian:~# smbpasswd -a scwook
 {% endhighlight %}
 
-서비스 재시작
+Restart service.
 
 {% highlight console %}
 root@debian:~# service smbd restart
 {% endhighlight %}
 
-또는 
+or
 
 {% highlight console %}
 root@debian:~# service samba restart
@@ -145,16 +146,17 @@ root@debian:~# service samba restart
 root@debian:~# aptitude install vsftpd
 {% endhighlight %}
 
-설정 파일은 /etc/vsftpd.conf 이며, 기본 FTP 접근 폴더는 사용자 Home 폴더 이다.
-기본 폴더를 바꾸고 싶으면 사용자 Home 폴더 자체를 바꿔야 하며, /etc/passwd 에 사용자 Home폴더가 명시되어 있다.
+FPT configuration file is /etc/vsftpd.conf and default access folder is user home folder.
+If you want to change default folder, you have to change user home folder and it is specified in /etc/passwd file.
 
-FTP는 보안상 이유로 Symbolic Link를 허용하지 않는다. 예를 들어 USB 마운트 폴더를 다음과 같이 Home 폴더에 링크한 경우
+Because of security, FTP server does not allow symbolic link. For example, a my-usb-link is linked to USB mount folder
 
 {% highlight console %}
 scwook@debian:~$ ln -s /media/scwook/my-usb /home/scwook/my-usb-link
 {% endhighlight %}
 
-FTP로 접속하면 my-usb-link에 접속 할 수 없다. 해결 방법은 Link가 아니라 다음과 같이 Directory Mount로 한다.
+you can't see any files of USB when you access my-usb-link via FTP.
+One solution is using Directory Mount as follows
 
 {% highlight console %}
 root@debian:~# mount -o bind /media/scwook/usb /home/scwook/usb-link
@@ -162,11 +164,11 @@ root@debian:~# mount -o bind /media/scwook/usb /home/scwook/usb-link
 
 <br />
 
-### <a name="6"></a>6. Debian 설치시 HDD가 안보일 때
+### <a name="6"></a>6. Invisible HDD when install debian
 
-Debian Linux 설치시 장착된 HDD가 보이지 않을 경우 다음과 같이 해결할 수 있다.
-Debian Download Page에서 Live 이미지를 다운 받은 후 [Live CD](#1)를 준비한다.
-Live CD로 부팅 한 후 dmraid 명령으로 HDD를 인식시킨다.
+When you install debian linux, sometime you can't see HDD which is mounted HDD on your PC.
+One solution is using Live CD. Form [Debian Download Page](https://www.debian.org/CD/live/), prepare a live CD.
+
 
 {% highlight console %}
 $ sudo su

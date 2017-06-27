@@ -57,7 +57,7 @@ int main(void)
 
 테스트를 위해 컴파일 후 프로그램을 실행한다.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o ledTest ledTest.c -lwiringPi
 pi@raspberrypi ~$ sudo ./ledTest
 {% endhighlight %}

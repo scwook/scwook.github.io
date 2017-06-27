@@ -53,7 +53,7 @@ int main(void)
 
 Compile and run the program.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o pirMotionTest pirMotionTest.c -lwiringPi
 pi@raspberrypi ~$ sudo ./pirMotionTest
 {% endhighlight %}

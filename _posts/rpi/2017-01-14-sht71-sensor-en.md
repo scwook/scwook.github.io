@@ -495,7 +495,7 @@ void SHT1x_Calc(float *p_humidity ,float *p_temperature);
 
 Compile and run the program.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o sht71 testSHT1x.c RPi_SHT.c -lwiringPi
 pi@raspberrypi ~$ sudo ./sht71
 {% endhighlight %}

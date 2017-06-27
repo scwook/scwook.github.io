@@ -101,7 +101,8 @@ int main(void)
 ### Test
 
 컴파일 후 프로그램을 실행한다.
-{% highlight shell %}
+
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o dht11 dht11.c -lwiringPi
 pi@raspberrypi ~$ sudo ./dht11
 H = 32.0  T = 26.0

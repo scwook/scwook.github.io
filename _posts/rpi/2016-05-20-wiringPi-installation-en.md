@@ -11,7 +11,7 @@ One method to use GPIO Port of raspberry pi is using wiringPi. Basic information
 
 wiringPi can be downloaded form git. So git must be installed first.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ sudo su -
 root@raspberrypi:~# aptitude install git
 root@raspberrypi:~# exit
@@ -22,18 +22,18 @@ remote: Compressing objects: 100% (599/599), done.
 remote: Total 657 (delta 476), reused 95 (delta 58)
 Receiving objects: 100% (657/657), 247.61 KiB | 94 KiB/s, done.
 Resolving deltas: 100% (476/476), done.
-{% endhighlight shell %}
+{% endhighlight %}
 
 Build from source code.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ cd wiringPi
 pi@raspberrypi ~/wiringPi$ ./build
-{% endhighlight shell %}
+{% endhighlight %}
 
 Pin Layout can be checked by `gpio readall` command.
 
-{% highlight shell %}
+{% highlight console %}
 raspberrypi:~/wiringPi $ gpio readall
 +-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
@@ -61,4 +61,4 @@ raspberrypi:~/wiringPi $ gpio readall
  +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
  +-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
-{% endhighlight shell %}
+{% endhighlight %}

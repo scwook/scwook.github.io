@@ -31,7 +31,7 @@ Olog는 WAR(Web application ARchiver)파일로 제공되며 다음 시스템 환
 # 3.1 Java
 현재 사용가능한 Java는 Olog Service v2.2.6을 기준으로 JDK 7버전 이하만 지원하고 있다. 만약 설치된 Java의 버전이 맞지 않을 경우 [Java Installation in Debian Jessie]({{site.url}}/linux/2016/05/25/Java-installation-in-debian-jessie-kr.html)를 참고하여 새로운 Java를 설치하기 바란다.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~/Download$ java -version
 java version "1.7.0_80"
 Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
@@ -41,7 +41,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
 # 3.2 MySql Server
 MySql Server는 `aptitude` 명령으로 간단히 설치 할 수 있다. Linux 이외의 OS를 사용하는 경우 [MySql Download Page](http://www.mysql.com/downloads)에서 설치파일을 다운받아 설치한다.
 
-{% highlight shell %}
+{% highlight console %}
 root@debian:~# aptitude install mysql-server-5.5
 {% endhighlight %}
 
@@ -56,14 +56,14 @@ Olog의 Database 구조는 다음과 같다.
 
 Database 생성을 위해 MySql에 로그인 한다.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debain:~$ mysql -u root -p
 Enter password: 
 {% endhighlight %}
 
 Database 및 Table 생성은 MySql Query명령을 통해 직접 만들 수 있지만 [Olog Scheme Script]({{site.url}}/archive/olog_scheme.sql)파일을 실행하면 간단히 만들 수 있다.
 
-{% highlight shell %}
+{% highlight console %}
 mysql> source /home/scwook/Downloads/olog_scheme.sql;
 mysql> show databases;
 +--------------------+
@@ -106,7 +106,7 @@ Java 기반의 Olog Service와 MySql을 연동하기 위해서는 JDBC(Java Data
 
 다운 받은 파일의 압축을 해제하고 `mysql-connector-java-5.1.38-bin.jar` 파일을 glassfish library 폴더에 복사한다.
 
-{% highlight shell %}
+{% highlight console %}
 root@debain:~/Downloads# tar xvf mysql-connector-java-5.1.38.tar.gz
 root@debain:~/Downloads# cd mysql-connector-java-5.1.38
 root@debain:~/Downloads# cp mysql-connector-java-5.1.38-bin.jar /opt/glassfish3/glassfish/lib
@@ -166,13 +166,13 @@ Manage Users를 클릭하고 사용자를 추가한다.
 ### Download
 Olog Service 파일은 [Olog Web Page](https://sourceforge.net/projects/olog/files)에서 다운 받을 수 있다. Linux의 경우 `wget` 명령을 사용하여 다음과 같이 다운 받을 수 있다.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~/Downloads$ wget https://sourceforge.net/projects/olog/files/Rel_2-2-6/Olog_2-2-6.tar.gz
 {% endhighlight %}
 
 다운받은 파일의 압축을 해제한다.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~/Downloads$ tar xvf Olog_2-2-6.tar.gz
 scwook@debian:~/Downloads$ ls
 OlogAPI-2.2.6.jar          OlogAPI-2.2.6-sources.jar
@@ -196,26 +196,26 @@ Olog는 기본적으로 Web Client Tool을 제공하고 있다. 여기서는 Olo
 ### Web Client
 [Olog Web Client Download Page](https://github.com/Olog/logbook/releases)또는 `wget`명령으로 최신 버전의 Client를 다운 받은 후 압축을 해제한다.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debain:~/Downloads# wget https://github.com/Olog/logbook/archive/v0.5-beta.tar.gz
 scwook@debain:~/Downloads# tar xvf v0.5-beta.tar.gz
 {% endhighlight %}
 
 Olog/public_html/static/configuration.js 파일을 열어 serviceurl값을 Olog Service 주소로 설정한다.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debain:~/Downloads# cd logbook-0.5-beta/Olog/public_html/static/js
 scwook@debian:~/Downloads/logbook-0.5-beta/Olog/public_html/static/js$ vi configuration.js
 {% endhighlight %}
 
-{% highlight shell %}
+{% highlight console %}
 // For accessing the REST service
 var serviceurl = "https://10.1.5.88:8181/Olog/resources/";
 {% endhighlight %}
 
 접속은 Web Browser를 이용하여 index.html 파일을 열면 된다.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~\$ firefox logbook-0.5-beta\Olog\index.html
 {% endhighlight %}
 

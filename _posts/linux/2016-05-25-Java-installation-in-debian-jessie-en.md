@@ -9,7 +9,7 @@ categories: Linux
 ---
 Using `update-alternatives` command, you can add new Java version in the Jessie. First, check current Java version.
 
-{% highlight shell %}
+{% highlight console %}
 scwook@debian:~$ java -version
 openjdk version "1.8.0_72-internal"
 OpenJDK Runtime Environment (build 1.8.0_72-internal-b15)
@@ -18,20 +18,20 @@ OpenJDK 64-Bit Server VM (build 25.72-b15, mixed mode)
 
 Download new Java version form the [Oracle download web page](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and uncompressing.
 
-{% highlight shell %}
+{% highlight console %}
 root@debian:~/Download# tar xvf jdk-8u91-linux-x64.tar.gz -C /opt/
 {% endhighlight shell %}
 
 Register new Java with `--install` option
 
-{% highlight shell %}
+{% highlight console %}
 root@debian:~/Download# update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_91/bin/java 1500
 root@debian:~/Download# update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_91/bin/javac 1500
 {% endhighlight shell %}
 
 Change Java version with `--config` option
 
-{% highlight shell %}
+{% highlight console %}
 root@debian:~/Download# update-alternatives --config java
 There are 2 choices for the alternative java (providing /usr/bin/java).
   Selection    Path                                            Priority   Status

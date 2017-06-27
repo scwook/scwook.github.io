@@ -52,7 +52,7 @@ int main(void)
 
 컴파일 후 프로그램을 실행한다.
 
-{% highlight shell %}
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o pirMotionTest pirMotionTest.c -lwiringPi
 pi@raspberrypi ~$ sudo ./pirMotionTest
 {% endhighlight %}

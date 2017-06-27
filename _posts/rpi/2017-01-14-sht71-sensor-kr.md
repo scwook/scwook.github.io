@@ -493,7 +493,8 @@ void SHT1x_Calc(float *p_humidity ,float *p_temperature);
 ### Test
 
 컴파일 후 프로그램을 실행한다.
-{% highlight shell %}
+
+{% highlight console %}
 pi@raspberrypi ~$ gcc -o sht71 testSHT1x.c RPi_SHT.c -lwiringPi
 pi@raspberrypi ~$ sudo ./sht71
 {% endhighlight %}
