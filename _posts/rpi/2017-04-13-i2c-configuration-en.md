@@ -11,7 +11,7 @@ I2C(Inter-Integrated Circuit)is a serial based protocol developed by the Philips
 
 In order to use I2C interface, open the **Raspberry Pi Configuration Tool**.
 
-{% highlight console %}
+{% highlight bash %}
 pi@raspberrypi ~$ sudo raspi-config
 {% endhighlight %}
 

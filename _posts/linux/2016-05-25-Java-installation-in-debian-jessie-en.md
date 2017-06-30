@@ -9,7 +9,7 @@ categories: Linux
 ---
 Using `update-alternatives` command, you can add new Java version in the Jessie. First, check current Java version.
 
-{% highlight console %}
+{% highlight bat %}
 scwook@debian:~$ java -version
 openjdk version "1.8.0_72-internal"
 OpenJDK Runtime Environment (build 1.8.0_72-internal-b15)
