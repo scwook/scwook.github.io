@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Java Installation in Debian Jessie"
+title: "Java Installation in Debian Jessie"
 language:
   - en
   - kr

@@ -33,19 +33,19 @@ In this post, the test system is as follow. All servers are installed in a one P
 # 3.1 Java
 Currently, The Olog Service based version 2.2.6 support only the Java JDK 6 or 7. If your system doesn't satisfy these Java version, Please refer to the [Java Installation in Debian Jessie]({{site.url}}/linux/2016/05/25/Java-installation-in-debian-jessie-kr.html) post to install a new Java version. 
 
-{% highlight console %}
+<pre>
 scwook@debian:~/Download$ java -version
 java version "1.7.0_80"
 Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
 Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
-{% endhighlight %}
+</pre>
 
 # 3.2 MySql Server
-MySql Server can be installed by using `aptitude` command. If you are using OS other than Linux, you have to install MySql Server form [MySql Download Page](http://www.mysql.com/downloads)
+MySql Server can be installed by using **aptitude** command. If you are using OS other than Linux, you have to install MySql Server form [MySql Download Page](http://www.mysql.com/downloads)
 
-{% highlight console %}
+<pre>
 root@debian:~# aptitude install mysql-server-5.5
-{% endhighlight %}
+</pre>
 
 Configure default root password and click Ok button.
 
@@ -58,14 +58,14 @@ The structure of the Olog database is as follows.
 
 In order to create the database, Login to MySql Server.
 
-{% highlight console %}
+<pre>
 scwook@debain:~$ mysql -u root -p
 Enter password: 
-{% endhighlight %}
+</pre>
 
 The Olog database and table can be create by using the MySql query command or you can use [Olog Scheme Script]({{site.url}}/archive/olog_scheme.sql) script file.
 
-{% highlight console %}
+<pre>
 mysql> source /home/scwook/Downloads/olog_scheme.sql;
 mysql> show databases;
 +--------------------+
@@ -96,7 +96,7 @@ mysql> show tables;
 9 rows in set (0.00 sec)
 
 mysql> exit
-{% endhighlight %}
+</pre>
 
 # 3.3 Glassfish
 Currently, The Olog Service based version 2.2.6 support only the Glassfish v3. If you need to install the Glassfish, Please refer to the [Glassfish Installation in Debian Jessie](/linux/2016/05/30/glassfish-installation-in-debian-jessie-kr.html) post.
@@ -106,16 +106,16 @@ To use Java based the Olog Service with MySql, JDBC(Java Database Connectivity) 
 
 ![Download MySql Connector J]({{site.url}}/images/mysql_connectorJ_download.png)
 
-Uncompress file and copy `mysql-connector-java-5.1.38-bin.jar` to glassfish library directory.
+Uncompress file and copy 'mysql-connector-java-5.1.38-bin.jar' to glassfish library directory.
 
-{% highlight console %}
+<pre>
 root@debain:~/Downloads# tar xvf mysql-connector-java-5.1.38.tar.gz
 root@debain:~/Downloads# cd mysql-connector-java-5.1.38
 root@debain:~/Downloads# cp mysql-connector-java-5.1.38-bin.jar /opt/glassfish3/glassfish/lib
-{% endhighlight %}
+</pre>
 
 ### Crate JDBC Connection Pool
-On the Glassfish Server, Select Common Task - Resources - JDBC - JDBC Connection Pool
+On the Glassfish Server, Select *Common Task - Resources - JDBC - JDBC Connection Pool*
 Click New button and set up properties as following. 
 
 * Pool Name: OlogPool
@@ -134,7 +134,7 @@ Add Name and Value properties in the Additional Properties menu.
 ![Olog Connection Pool Properties]({{site.url}}/images/glassfish_olog_connection_pool_properties.png)
 
 ### Crate JDBC Resource
-Select Common Tasks - Resources - JDBC - JDBC Resources
+Select *Common Tasks - Resources - JDBC - JDBC* Resources
 Click New button and set up JNDL and Pool names.
 
 * JNDL Name: jdbc/olog
@@ -143,7 +143,7 @@ Click New button and set up JNDL and Pool names.
 ![Crate Olog JDBC Resources]({{site.url}}/images/glassfish_olog_jdbc_resources.png)
 
 ### Crate Realm
-Select Common Tasks - Configurations - Server-config - Security - Realms
+Select *Common Tasks - Configurations - Server-config - Security - Realms*
 Click New button and set up properties as following. 
 
 * Name: olog
@@ -156,7 +156,7 @@ Click New button and set up properties as following.
 ### Add User
 Olog Service consist of two user group which are olog-logs and olog-admins. These two group have write permission in commonly and only olog-admins group can manage Logbook and Tag lists. 
 
-To add new users, select Common Tasks - Configurations - Server-config - Security - Realms - olog.
+To add new users, select *Common Tasks - Configurations - Server-config - Security - Realms - olog*.
 Click the Manage Users and add user informations.
 
 * User ID: [user ID to use Olog Service]
@@ -167,24 +167,24 @@ Click the Manage Users and add user informations.
 # 3.3 Olog Service
 
 ### Download
-Olog Service file can be found in [Olog Web Page](https://sourceforge.net/projects/olog/files). In case of Linux OS, can more easily download by using `wget` command.
+Olog Service file can be found in [Olog Web Page](https://sourceforge.net/projects/olog/files). In case of Linux OS, can more easily download by using **wget** command.
 
-{% highlight console %}
+<pre>
 scwook@debian:~/Downloads$ wget https://sourceforge.net/projects/olog/files/Rel_2-2-6/Olog_2-2-6.tar.gz
-{% endhighlight %}
+</pre>
 
 Uncompress the file.
 
-{% highlight console %}
+<pre>
 scwook@debian:~/Downloads$ tar xvf Olog_2-2-6.tar.gz
 scwook@debian:~/Downloads$ ls
 OlogAPI-2.2.6.jar          OlogAPI-2.2.6-sources.jar
 OlogAPI-2.2.6-javadoc.jar  olog-service-2.2.6.war
-{% endhighlight %}
+</pre>
 
 ### Deploy
-Select Common Tasks - Applications.
-Click Deploy button and select olog-service war file.
+Select *Common Tasks - Applications*.
+Click Deploy button and select 'olog-service-2.2.6.war' file.
 
 * Location: olog-service-2.2.6.war
 * Type: Web Application
@@ -197,30 +197,30 @@ Click Deploy button and select olog-service war file.
 In order to use the Olog Service, basically, the Web Client tool is provided. In this post will show how to make log entry by using the Web Client and CS-Studio.
   
 ### Web Client
-Download the [Olog Web Client](https://github.com/Olog/logbook/releases) on the website or by using `wget` command.
+Download the [Olog Web Client](https://github.com/Olog/logbook/releases) on the website or by using **wget** command.
 
-{% highlight console %}
+<pre>
 scwook@debain:~/Downloads# wget https://github.com/Olog/logbook/archive/v0.5-beta.tar.gz
 scwook@debain:~/Downloads# tar xvf v0.5-beta.tar.gz
-{% endhighlight %}
+</pre>
 
-Open the configuration.js file located at /Olog/public_html/static/js and change the serviceurl to the Olog Service address.
+Open the 'configuration.js' file located at */Olog/public_html/static/js* and change the serviceurl to the Olog Service address.
 
-{% highlight console %}
+<pre>
 scwook@debain:~/Downloads# cd logbook-0.5-beta/Olog/public_html/static/js
 scwook@debian:~/Downloads/logbook-0.5-beta/Olog/public_html/static/js$ vi configuration.js
-{% endhighlight %}
+</pre>
 
-{% highlight console %}
+<pre>
 // For accessing the REST service
 var serviceurl = "https://10.1.5.88:8181/Olog/resources/";
-{% endhighlight %}
+</pre>
 
 Run index.html file with a web browser.
 
-{% highlight console %}
+<pre>
 scwook@debian:~\$ firefox logbook-0.5-beta\Olog\index.html
-{% endhighlight %}
+</pre>
 
 ![Web Client v0.5 beta]({{site.url}}/images/olog_web_client.png)
 

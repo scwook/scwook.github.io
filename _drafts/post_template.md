@@ -10,7 +10,15 @@ categories: EPICS
 
 # 1. Introduction
 
-This is a `highlight`
+This is a **command** and this is a *path*
+
+Shell 
+
+<pre>
+scwook@debian:~$ this is a shell
+</pre>
+
+<span class="insert">Insert code color</span>
 
 # 2. Requirements
 
@@ -29,16 +37,13 @@ This is a [link]({{site.url}}/raspberrypi/2016/05/20/wiringPi-installation-en.ht
 This is a ![Image]({{site.url}}/images/image.png)
 
 {% hightlight c linenos %}
-This is a code block with line numbers
+This is a code block for C language
 {% endhighlight %}
 
-{% hightlight shell %}
-This is a code block without line numbers
-{% endhighlight %}
+<br />
 
-Toubleshooting
-==============
+<hr>
 
-# A. Touble Title
+# Toubleshooting
 
-# B. Touble Title
+<span class="problem">Problem 1</span>
