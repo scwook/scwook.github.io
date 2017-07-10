@@ -76,11 +76,18 @@ root@debian:~# echo "script.inline: on" | tee -a /etc/elasticsearch/indexed.yml
 root@debian:~# /etc/init.d/elasticsearch start
 </pre>
 
-Mapping Definition
+ChannelFinder를 위한 Index와 Field를 생성한다. 
 
 <pre>
 scwook@debian:~$ git clone https://github.com/ChannelFinder/ChannelFinderService.git
 scwook@debian:~$ bash ChannelFinder/channelfinder/src/main/resources/mapping_definitions.sh
+</pre>
+
+**curl** 명령으로 생성된 Index와 Field를 확인할 수 있다.
+
+<pre>
+scwook@debian:~$ curl -XGET http://localhost:9200/channelfinder
+{"channelfinder":{"aliases":{},"mappings":{"channel":{"properties":{"name":{"type":"string","analyzer":"whitespace"},"owner":{"type":"string","analyzer":"whitespace"},"properties":{"type":"nested","include_in_parent":true,"properties":{"name":{"type":"string","analyzer":"whitespace"},"owner":{"type":"string"},"value":{"type":"string","analyzer":"whitespace"}}},"script":{"type":"string"},"tags":{"type":"nested","include_in_parent":true,"properties":{"name":{"type":"string","analyzer":"whitespace"},"owner":{"type":"string","analyzer":"whitespace"}}}}}},"settings":{"index":{"creation_date":"1499317774205","number_of_shards":"5","number_of_replicas":"1","version":{"created":"1070399"},"uuid":"4PY7DDuqRnCVTJFApOM01A"}},"warmers":{}}}
 </pre>
 
 ### 3.4 Glassfish
@@ -95,12 +102,12 @@ Glassfish 설치는 [Glassfish Installation in Debian Jessie](/linux/2016/05/30/
 
 ![Create New Realm for ChannelFinder]({{site.url}}/images/glassfish_channelfinder_realms.png)
 
-앞서 생성한 *Common Tasks - Configurations - Server-config - Security - Realms - channelfinder* 를 선택한 후 *Manage Users* 버튼을 눌러 사용자를 추가한다.
+앞서 생성한 *channelfinder* 를 선택한 후 *Manage Users* 버튼을 눌러 사용자를 추가한다.
 
 * User ID: scwook
 * Group List: cf-admins
 
-ChannelFinder Web Application 파일은 [ChannelFinder Download Page]( https://sourceforge.net/projects/channelfinder/files/ChannelFinder/ChannelFinder-3.0.1.tar.gz/download)에서 받을 수 있다.
+Deploy를 위한 ChannelFinder Web Application 파일은 [ChannelFinder Download Page]( https://sourceforge.net/projects/channelfinder/files/ChannelFinder/ChannelFinder-3.0.1.tar.gz/download)에서 받을 수 있다.
 
 <pre>
 scwook@debian:~$ wget https://sourceforge.net/projects/channelfinder/files/ChannelFinder/ChannelFinder-3.0.1.tar.gz/
@@ -128,7 +135,7 @@ root@debian:/pyCFClient# python setup.py build
 root@debian:/pyCFClient# python setup.py install
 </pre>
 
-*/etc/channelfinderapi.conf* 파일을 생성한 후 Glassfish에 등록된 ChannelFinder 사용자 정보와 주소를 추가한다.
+*channelfinderapi.conf* 파일을 */etc* 폴더 아래에 생성한 후 Glassfish에 등록된 ChannelFinder w사용자 정보와 주소를 추가한다.
 
 <pre>
 [DEFAULT]
@@ -139,11 +146,15 @@ password=1234
 
 ### 3.6 Record Synchronizer Server
 
+Record Synchronizer는 현재 작동중인 IOC의 Record정보를 Server로 정송하는 Client와 Client로 부터 받은 모든 Record 리스트를 Database로 Upload하는 Server로 구성되어 있다.
+
+Server는 Python기반 네트워크 엔진인 Twisted로 작동하며, 실행 방법은 아래와 같다.
+
 <pre>
 scwook@debian:~$ git clone https://github.com/ChannelFinder/recsync
 scwook@debian:~$ cd recsync/server
 scwook@debian:~/recsync/server$ twistd -r poll -n recceiver -f cf.conf
-Removing stale pidfile /home/ctrluser/service-module/channelfinder/recsync/server/twistd.pid
+Removing stale pidfile /home/scwook/service-module/channelfinder/recsync/server/twistd.pid
 2017-06-30 17:09:44+0900 [-] Log opened.
 2017-06-30 17:09:44+0900 [-] twistd 14.0.2 (/usr/bin/python 2.7.9) starting up.
 2017-06-30 17:09:44+0900 [-] reactor class: twisted.internet.pollreactor.PollReactor.
