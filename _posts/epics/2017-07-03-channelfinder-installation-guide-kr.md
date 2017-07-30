@@ -135,7 +135,7 @@ root@debian:/pyCFClient# python setup.py build
 root@debian:/pyCFClient# python setup.py install
 </pre>
 
-*channelfinderapi.conf* 파일을 */etc* 폴더 아래에 생성한 후 Glassfish에 등록된 ChannelFinder w사용자 정보와 주소를 추가한다.
+*channelfinderapi.conf* 파일을 */etc* 폴더 아래에 생성한 후 Glassfish에 등록된 ChannelFinder 사용자 정보와 주소를 추가한다.
 
 <pre>
 [DEFAULT]
@@ -169,11 +169,14 @@ Removing stale pidfile /home/scwook/service-module/channelfinder/recsync/server/
 
 # 4. Client Installation
 
+
 <pre>
 scwook@debian:~$ cd ChannelFinder/recsync/client
 scwook@debian:~/ChannelFinder/recsync/client$ ls
 castApp  configure  demoApp  iocBoot  Makefile
 </pre>
+
+*configuration/RELEASE* 파일에 EPICS Base 위치를 지정한다.
 
 <pre>
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
@@ -181,7 +184,7 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 <span class="insert">EPICS_BASE=/home/scwook/epics/R3.12.14.5/base</span>
 </pre>
 
-<pre> 
+pre> 
 scwook@debian:~/ChannelFinder/recsync/client$ make
 scwook@debian:~/ChannelFinder/recsync/client$ ls
 bin  castApp  configure  db  dbd  demoApp  iocBoot  lib  Makefile
