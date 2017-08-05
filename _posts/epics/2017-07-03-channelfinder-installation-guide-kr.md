@@ -168,15 +168,7 @@ Removing stale pidfile /home/scwook/service-module/channelfinder/recsync/server/
 </pre>
 
 # 4. Client Installation
-
-
-<pre>
-scwook@debian:~$ cd ChannelFinder/recsync/client
-scwook@debian:~/ChannelFinder/recsync/client$ ls
-castApp  configure  demoApp  iocBoot  Makefile
-</pre>
-
-*configuration/RELEASE* 파일에 EPICS Base 위치를 지정한다.
+*recsync/client* 폴더로 이동 후 *configuration/RELEASE* 파일에 EPICS Base 위치를 지정한다.
 
 <pre>
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
@@ -184,17 +176,42 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 <span class="insert">EPICS_BASE=/home/scwook/epics/R3.12.14.5/base</span>
 </pre>
 
-pre> 
-scwook@debian:~/ChannelFinder/recsync/client$ make
-scwook@debian:~/ChannelFinder/recsync/client$ ls
-bin  castApp  configure  db  dbd  demoApp  iocBoot  lib  Makefile
+Debug Build를 해재하기 위해 *configuration/CONFIG_SITE* 파일에 TARGET ARCHS를 주석 처리한다.
+
+<pre>
+<span class="insert">#CROSS_COMPILER_TARGET_ARCHS = $(EPICS_HOST_ARCH)-debug</span>
+</pre>
+ 
+iocBoot/iocdemo/Makefile 파일에 ARCH를 현재 사용중인 OS의 Architecture로 변경한다. Architecture는 **uname -sm** 명령으로 확인 할 수 있다.
+
+<pre>
+scwook@debian:~/ChannelFinder/recsync/client$ uname -sm
+Linux x86_64
 </pre>
 
+<pre>
+TOP = ../..
+include $(TOP)/configure/CONFIG
+<span class="insert">ARCH = linux-x86_64</span>
+TARGETS = envPaths
+include $(TOP)/configure/RULES.ioc
+</pre>
+
+상위 폴더에서 make 실행을 통해 castApp과 demoApp을 build 한다.
+
+<pre>
+scwook@debian:~/ChannelFinder/recsync/client$ make
+</pre>
+
+Build가 완료되면 *lib* 폴더 아래에 reccaster library가 생성된다. 기본적으로 현재 사용중인 EPICS IOC에 reccaster library를 추가하면 자동으로 Record 정보가 Server로 전송되고 ChannelFinder를 통해 검색할 수 있다.
 <pre>
 scwook@debian:~/ChannelFinder/recsync/client$ ls lib/linux-x86_64/
 libreccaster.a  libreccaster.so  libreccaster.so.0
 </pre>
 
+기본적인 테스트는 *iocBoot/iocdemo/st.cmd* 파일을 실행하면 된다. 아래는 새로운 IOC를 생성한 후 reccaster library를 추가하는 방법에 대해 설명하였다. 
+
+HOME 아래 *cfTest* 폴더를 만들고 **makeBaseApp* 스크립트로 기본 IOC Application을 생성한다.
 <pre>
 scwook@debian:~$ mkdir cfTest && cd cfTest
 scwook@debian:~/cfTest$ makeBaseApp.pl -t ioc cfTest
@@ -207,6 +224,7 @@ The default uses the IOC's name, even if not listed above.
 Application name? cfTest
 </pre>
 
+*cfTestApp/src/Makefile*에 dbd와 library 위치를 추가하고 
 
 <pre>
 TOP=../..
