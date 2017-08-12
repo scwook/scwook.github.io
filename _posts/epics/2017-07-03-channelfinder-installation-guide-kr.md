@@ -224,7 +224,7 @@ The default uses the IOC's name, even if not listed above.
 Application name? cfTest
 </pre>
 
-*cfTestApp/src/Makefile*에 dbd와 library 위치를 추가하고 
+*cfTestApp/src/Makefile*에 reccaster dbd와 library를 추가한다.
 
 <pre>
 TOP=../..
@@ -260,32 +260,20 @@ cfTest_LIBS += $(EPICS_BASE_IOC_LIBS)
 include $(TOP)/configure/RULES
 </pre>
 
+
+
 <pre>
 record(bi, "CF:bi")
 {
   field(DESC, "bi Example")
   field(INP, "0")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  field(OSV, "MAJOR")
   field(PINI, "YES")
 }
 
 record(ai, "CF:ai")
 {
   field(DESC, "ai Example")
-  field(INP, "${n}")
-  field(LOLO, "1")
-  field(LOW, "2")
-  field(HIGH, "5")
-  field(HIHI, "9")
-  field(LOPR, "0")
-  field(HOPR, "10")
-  field(LLSV, "MAJOR")
-  field(LSV, "MINOR")
-  field(HSV, "MINOR")
-  field(HHSV, "MAJOR")
-  field(PREC, "1")
+  field(INP, "3.1415")
   field(PINI, "YES")
 }
 
@@ -294,14 +282,6 @@ record(calc, "CF:calc")
   field(DESC, "calc Example")
   field(SCAN, "1 second")
   field(CALC, "RNDM")
-  field(LOLO, "0.001")
-  field(LOW, "0.01")
-  field(HIGH, "0.9")
-  field(HIHI, "0.95")
-  field(LLSV, "MAJOR")
-  field(LSV, "MINOR")
-  field(HSV, "MINOR")
-  field(HHSV, "MAJOR")
 }
 </pre>
 
