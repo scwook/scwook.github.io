@@ -209,9 +209,17 @@ scwook@debian:~/ChannelFinder/recsync/client$ ls lib/linux-x86_64/
 libreccaster.a  libreccaster.so  libreccaster.so.0
 </pre>
 
-기본적인 테스트는 *iocBoot/iocdemo/st.cmd* 파일을 실행하면 된다. 아래는 새로운 IOC를 생성한 후 reccaster library를 추가하는 방법에 대해 설명하였다. 
+기본적인 테스트는 *iocBoot/iocdemo/st.cmd* 파일을 실행하면 된다.
 
-HOME 아래 *cfTest* 폴더를 만들고 **makeBaseApp* 스크립트로 기본 IOC Application을 생성한다.
+<pre>
+scwook@debian:~/ChannelFinder/recsync/client$ cd iocBoot/iocdemo
+scwook@debian:~/ChannelFinder/recsync/client/iocBoot/iocdemo$ ./st.cmd
+</pre>
+
+
+아래는 새로운 IOC를 생성한 후 reccaster library를 추가하는 방법에 대해 설명하였다. 
+
+HOME 아래 *cfTest* 폴더를 만들고 **makeBaseApp.pl** 스크립트로 기본 IOC Application을 생성한다.
 <pre>
 scwook@debian:~$ mkdir cfTest && cd cfTest
 scwook@debian:~/cfTest$ makeBaseApp.pl -t ioc cfTest
@@ -260,7 +268,7 @@ cfTest_LIBS += $(EPICS_BASE_IOC_LIBS)
 include $(TOP)/configure/RULES
 </pre>
 
-
+테스트를 위해 *cfTestApp/Db* 아래에 cfTest.db 파일을 만들고 아래와 같은 Record를 추가한다.
 
 <pre>
 record(bi, "CF:bi")
@@ -285,6 +293,8 @@ record(calc, "CF:calc")
 }
 </pre>
 
+*Db* 아래에 있는 Makefile에 앞서 생성한 cfTest.db 파일을 추가한다.
+ 
 <pre>
 TOP=../..
 include $(TOP)/configure/CONFIG
@@ -293,6 +303,14 @@ include $(TOP)/configure/CONFIG
 
 include $(TOP)/configure/RULES
 </pre>
+
+TOP 폴더로 이동 후 make를 실행한다.
+
+<pre>
+scwook@debian:~/cfTest$ make
+</pre>
+
+*iocBoot/ioccfTest* 아래에 있는 st.cmd 파일에 앞서 생성한 cfTest.db 파일을 추가한다.
 
 <pre>
 #!../../bin/linux-x86_64/cfTest
@@ -311,6 +329,8 @@ cfTest_registerRecordDeviceDriver pdbbase
 cd "${TOP}/iocBoot/${IOC}"
 iocInit
 </pre>
+
+st.cmd 파일을 실행한다.
 
 <pre>
 scwook@debian:~/cfTest/iocBoot/ioccfTest$ chmod +x st.cmd
