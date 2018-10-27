@@ -8,14 +8,47 @@
         <style>
             body {
                 font-family: 'Nanum Gothic', serif;
+                margin: 0;
             }
 
+            .navibar {
+                overflow: hidden;
+                background-color: white;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+
+            .navibar a {
+                float: right;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .main {
+                padding: 16px;
+                margin-top: 30px;
+                height: 1500px;
+            }
         </style>
 
         <title>scwook</title>
     </head>
 
     <body>
+        <div class="navibar">
+            <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="main">
+            <p>This is a test context</p>
+        </div>
     </body>
 
     <script></script>
