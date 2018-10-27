@@ -1,9 +1,55 @@
 <DOCTYPE html>
-<html>
+    <html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <head>
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+
+        <style>
+            body {
+                font-family: 'Nanum Gothic', serif;
+            }
+
+            .container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+            }
+        </style>
+
         <title>scwook</title>
     </head>
+
     <body>
-        <h1>DEVELOP FOR</h1>
+        <div class="container">
+            <p id="introTitle" style="color:rgba(0, 0, 0, 0); font-size: 4vw; font-weight: bold; text-align: center; padding: 70px 0">DEVELOP</p>
+        </div>
     </body>
-</html>
+
+    <script>
+        window.onload = function () {
+            introTitleShowUp();
+        }
+
+        function introTitleShowUp() {
+            var elementText = document.getElementById("introTitle");
+            var alpha = 0;
+            var id = setInterval(frame, 5);
+
+            function frame() {
+                if (alpha >= 1) {
+                    clearInterval(id);
+                }
+                else {
+                    changeColor = "rgba(0, 0, 0, " + String(alpha) + ")";
+                    elementText.style.color = changeColor;
+                    alpha += 0.005;
+                }
+            }
+        }
+    </script>
+
+    </html>
