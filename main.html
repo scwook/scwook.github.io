@@ -10,29 +10,16 @@
                 font-family: 'Nanum Gothic', serif;
                 margin: 0;
             }
-
-            .navibar {
-                overflow: hidden;
+            #menu {
+                background-color: black;
+                color: white;
+                
+            }
+            #main {
+                background-color: black;
+            }
+            #work{
                 background-color: white;
-                position: fixed;
-                top: 0;
-                width: 100%;
-            }
-
-            .navibar a {
-                float: right;
-                display: block;
-                color: black;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-
-            .main {
-                padding: 16px;
-                margin-top: 30px;
-                height: 1500px;
             }
         </style>
 
@@ -40,17 +27,43 @@
     </head>
 
     <body>
-        <div class="navibar">
-            <a href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
+        <div id="menu">
+            <p>Test</p>
         </div>
-
-        <div class="main">
-            <p>This is a test context</p>
+        <div id="main">
+            <p id="introTitle" style="color:rgba(255, 255, 255, 0); font-size: 4vw; font-weight: bold; text-align: center; padding: 200px 0">D</p>
+            <p style="color: gray; font-size: 1vw; font-weight: normal;">Standing on the shoulder of giants</p>
+        </div>
+        <div id="work">
+            <p id="workTitle" style="color:rgba(0, 0, 0, 1); font-size: 2vw;">This is a my work</p>
         </div>
     </body>
 
-    <script></script>
+    <script>
+            window.onload = function () {
+                introTitleShowUp();
+            }
+    
+            function introTitleShowUp() {
+                var elementText = document.getElementById("introTitle");
+                var alpha = 0;
+                var val = 100;
+                var id = setInterval(frame, 5);
+    
+                function frame() {
+                    if (alpha >= 1) {
+                        clearInterval(id);
+                    }
+                    else {
+                        changeColor = "rgba(255, 255, 255, " + String(alpha) + ")";
+                        elementText.style.color = changeColor;
+                        alpha += 0.008;
+
+                        // elementText.style.padding = val + "px 0";
+                        // val += 1;
+                    }
+                }
+            }
+        </script>
 
     </html>
