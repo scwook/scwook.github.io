@@ -10,6 +10,7 @@
                 font-family: 'Nanum Gothic', sans-serif;
                 margin: 0;
             }
+
             #menu {
                 background-color: black;
                 color: white;
@@ -21,22 +22,50 @@
                 margin: 0;
             }
 
-            #main {
+            #header {
                 background-color: black;
                 color: white;
                 padding: 50px;
             }
-            
-            #main p {
-                margin: 0;      
+
+            #header p {
+                margin: auto;
             }
-            
-            #main div {
-                margin: 0;
+
+            #header div {
+                margin: auto;
             }
-            
-            #work{
+
+            #main {
                 background-color: white;
+                margin: auto;
+            }
+
+            .row,
+            .row>.column {
+                padding: 8px;
+            }
+
+            .column {
+                float: left;
+                width: 30%;
+            }
+
+            .row::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .content {
+                background-color: white;
+                padding: 10px;
+            }
+
+            .contentImage {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
         </style>
 
@@ -47,49 +76,70 @@
         <div id="menu">
             <p>This is a test</p>
         </div>
-        <div id="main">
-            <div >
+        <div id="header">
+            <div>
                 <p style="font-size: 8vw; text-align: center; font-weight: bold">B E T T E R</p>
             </div>
-            <div >
-                <p style="font-size: 6vw; text-align: center; font-weight: bold; border-bottom: 6px solid white">T H I N K I N G</p>
+            <div>
+                <p style="font-size: 6vw; text-align: center; font-weight: bold; border-bottom: 6px solid white">T H I
+                    N K I N G</p>
             </div>
-            <div >
+            <div>
                 <p style="font-size: 1.5vw; text-align: center; padding: 30px">
                     STANDING ON THE SHOULDERS OF GIANTS
                 </p>
             </div>
         </div>
-        <div id="work">
+        <div id="main">
             <p style="color:black; font-size: 1.5vw; text-align: center; padding: 30px">MY WORK</p>
+            <div class="row">
+                <div class="column">
+                    <div class="content">
+                        <img class="contentImage" src="monitoring_black_60x60.png" alt="Mountains" style="width: 60px">
+                        <p>earn how to create a responsive portfolio gallery grid with CSS.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img class="contentImage" src="motion_black_60x60.png" alt="Lights" style="width: 60px">
+                        <p>earn how to create a responsive portfolio gallery grid with CSS.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img class="contentImage" src="setting_black_60x60.png" alt="Nature" style="width:60px;">
+                        <p>earn how to create a responsive portfolio gallery grid with CSS.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 
     <script>
-            window.onload = function () {
-                introTitleShowUp();
-            }
-    
-            function introTitleShowUp() {
-                var elementText = document.getElementById("introTitle");
-                var alpha = 0;
-                var val = 100;
-                var id = setInterval(frame, 5);
-    
-                function frame() {
-                    if (alpha >= 1) {
-                        clearInterval(id);
-                    }
-                    else {
-                        changeColor = "rgba(255, 255, 255, " + String(alpha) + ")";
-                        elementText.style.color = changeColor;
-                        alpha += 0.008;
+        window.onload = function () {
+            introTitleShowUp();
+        }
 
-                        // elementText.style.padding = val + "px 0";
-                        // val += 1;
-                    }
+        function introTitleShowUp() {
+            var elementText = document.getElementById("introTitle");
+            var alpha = 0;
+            var val = 100;
+            var id = setInterval(frame, 5);
+
+            function frame() {
+                if (alpha >= 1) {
+                    clearInterval(id);
+                }
+                else {
+                    changeColor = "rgba(255, 255, 255, " + String(alpha) + ")";
+                    elementText.style.color = changeColor;
+                    alpha += 0.008;
+
+                    // elementText.style.padding = val + "px 0";
+                    // val += 1;
                 }
             }
-        </script>
+        }
+    </script>
 
     </html>
