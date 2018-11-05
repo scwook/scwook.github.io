@@ -41,21 +41,18 @@
                 margin: auto;
             }
 
-            .row,
-            .row>.column {
-                padding: 8px;
+            .row {
             }
 
             .column {
-                float: left;
-                width: 30%;
+                width: 33%;
             }
 
-            .row::after {
+            /* .row::after {
                 content: "";
                 display: table;
                 clear: both;
-            }
+            } */
 
             .content {
                 background-color: white;
@@ -66,6 +63,7 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
+                width: 60px;
             }
         </style>
 
@@ -90,26 +88,27 @@
                 </p>
             </div>
         </div>
-        <div id="main">
+        <div id="main" style="border: 1px solid red">
             <p style="color:black; font-size: 1.5vw; text-align: center; padding: 30px">MY WORK</p>
-            <div class="row">
-                <div class="column">
-                    <div class="content">
-                        <img class="contentImage" src="monitoring_black_60x60.png" alt="Mountains" style="width: 60px">
-                        <p>earn how to create a responsive portfolio gallery grid with CSS.</p>
-                    </div>
+        </div>
+            
+        <div class="row" style="border: 1px solid green">
+            <div class="column" style="border: 1px solid blue; float: left">
+                <div class="content">
+                    <img class="contentImage" src="monitoring_black_180x180.png" alt="Mountains" >
+                    <p style="text-align: center">earn how to create a responsive portfolio gallery grid with CSS.</p>
                 </div>
-                <div class="column">
-                    <div class="content">
-                        <img class="contentImage" src="motion_black_60x60.png" alt="Lights" style="width: 60px">
-                        <p>earn how to create a responsive portfolio gallery grid with CSS.</p>
-                    </div>
+            </div>
+            <div class="column" style="border: 1px solid blue; float: left">
+                <div class="content">
+                    <img class="contentImage" src="motion_black_180x180.png" alt="Lights" >
+                    <p style="text-align: center">earn how to create a responsive portfolio gallery grid with CSS.</p>
                 </div>
-                <div class="column">
-                    <div class="content">
-                        <img class="contentImage" src="setting_black_60x60.png" alt="Nature" style="width:60px;">
-                        <p>earn how to create a responsive portfolio gallery grid with CSS.</p>
-                    </div>
+            </div>
+            <div class="column" style="border: 1px solid blue; float: left">
+                <div class="content">
+                    <img class="contentImage" src="setting_black_180x180.png" alt="Nature">
+                    <p style="text-align: center">earn how to create a responsive portfolio gallery grid with CSS.</p>
                 </div>
             </div>
         </div>
